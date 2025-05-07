@@ -36,3 +36,159 @@
     transform: rotate(360deg);
   }
 }
+
+/* App.css */
+
+.container {
+  display: flex;
+  height: 100vh;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+.sidebar-left {
+  width: 300px;
+  background: #fff;
+  border-right: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 탭 */
+.tabs {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+.tab {
+  padding: 4px 8px;
+  margin-right: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  background: transparent;
+}
+.tab.selected {
+  background: #f0f0f0;
+}
+
+/* 검색 */
+.search-container {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+.search-input {
+  width: 100%;       /* 부모 컨테이너 폭에 맞춤 */
+  max-width: 250px;  /* 최대 250px 까지만 늘어남 */
+  box-sizing: border-box; /* padding 포함해 계산 */
+}
+
+/* 북마크 리스트 */
+.bookmark-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+}
+.bookmark-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.bookmark-item > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 16px;
+  font-size: 0.9em;
+}
+.bookmark-title {
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+.bookmark-children {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0 16px;
+  font-size: 0.9em;
+}
+.bookmark-children li {
+  margin-bottom: 2px;
+}
+
+/* 고정된 오른쪽 버튼바 */
+.right-button-bar {
+  width: 100px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 16px;
+}
+
+/* 개별 버튼 공통 스타일 */
+.right-button,
+.edit-button {
+  width: 80px;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #fff;
+  text-align: center;
+  white-space: pre-line;
+  font-size: 0.85em;
+}
+
+/* 선택된 버튼 배경 */
+.right-button.active {
+  background: #d4f8d4;
+}
+
+/* 북마크 리스트 가로 스크롤 방지 */
+.sidebar-left .bookmark-list {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* URL 길어져도 줄바꿈 */
+.sidebar-left .bookmark-list a {
+  word-break: break-all;
+}
+
+
+/* 공지 테이블 기본 스타일 */
+.notice-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;             /* 텍스트 크기 */
+  margin-top: 8px;
+}
+
+/* 테이블 헤더 */
+.notice-table thead th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  padding: 8px;
+  border-bottom: 2px solid #ddd;
+  text-align: left;
+}
+
+/* 테이블 셀 */
+.notice-table tbody td {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+/* 짝수 줄 배경색 */
+.notice-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* hover 시 강조 */
+.notice-table tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
