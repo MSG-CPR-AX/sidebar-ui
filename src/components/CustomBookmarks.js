@@ -4,7 +4,7 @@ import { bookmarks } from "../data/bookmarks"
 // 탭 배열을 외부에서 참조할 수 있도록 export
 export const tabs = ["공통", "SM전환", "Wafful Upgrade", "기타"]
 
-export default function StaticBookmarks({
+export default function CustomBookmarks({
   searchValue,
   selectedTab,
   expanded,

@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "React Side Panel Extension",
+  "name": "SideBeam✨",
   "version": "1.0",
-  "description": "Bookmark Zip📂",
+  "description": "SideBeam✨",
   "permissions": ["storage", "scripting", "tabs", "sidePanel", "notifications", "bookmarks"],
   "action": {
     "default_title": "Click to open panel"

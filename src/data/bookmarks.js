@@ -12,4 +12,7 @@ export const bookmarks = [
     //   children: []
     // }
   ]
+
+  
+export const tabs = bookmarks.map((bm) => bm.title)
   
