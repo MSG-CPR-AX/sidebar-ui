@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { Layout } from '@/components/layout/layout'
@@ -179,7 +179,6 @@ function App() {
       {import.meta.env.DEV && (
         <ReactQueryDevtools 
           initialIsOpen={false}
-          position="bottom-right"
         />
       )}
     </QueryClientProvider>

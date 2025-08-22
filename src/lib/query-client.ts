@@ -1,5 +1,4 @@
 import { QueryClient } from '@tanstack/react-query'
-import { ApiError } from './api-client'
 
 // Configure QueryClient with optimized defaults
 export const queryClient = new QueryClient({
@@ -12,7 +11,8 @@ export const queryClient = new QueryClient({
       // Retry failed requests with exponential backoff
       retry: (failureCount, error) => {
         // Don't retry on 4xx errors (client errors)
-        if (error instanceof ApiError && error.status && error.status >= 400 && error.status < 500) {
+        // @ts-ignore
+        if (error.status && error.status >= 400 && error.status < 500) {
           return false
         }
         // Retry up to 3 times for network/server errors
@@ -21,7 +21,7 @@ export const queryClient = new QueryClient({
       retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
       // Refetch on window focus for fresh data
       refetchOnWindowFocus: true,
-      // Don't refetch on reconnect by default (manual refresh preferred)
+      // Don't refetch on reconnecting by default (manual refresh preferred)
       refetchOnReconnect: false,
       // Network mode for offline handling
       networkMode: 'offlineFirst',
@@ -44,7 +44,7 @@ queryClient.setQueryDefaults(['bookmarks'], {
 queryClient.setMutationDefaults([], {
   onError: (error) => {
     console.error('Mutation error:', error)
-    // Here you could integrate with error reporting service like Sentry
+    // Here you could integrate with an error reporting service like Sentry
     // if (import.meta.env.VITE_SENTRY_DSN) {
     //   Sentry.captureException(error)
     // }

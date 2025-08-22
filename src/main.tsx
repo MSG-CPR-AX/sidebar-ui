@@ -1,19 +1,20 @@
-import { StrictMode } from 'react'
+import React, { StrictMode, Component, type ReactNode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App'
 
 // Error boundary for the entire application
-class ErrorBoundary extends React.Component {
-  constructor(props: any) {
+interface ErrorBoundaryState { hasError: boolean; error: Error | null }
+class ErrorBoundary extends Component<Readonly<{ children?: ReactNode }>, ErrorBoundaryState> {
+  constructor(props: Readonly<{ children?: ReactNode }>) {
     super(props)
     this.state = { hasError: false, error: null }
   }
 
-  static getDerivedStateFromError(error: Error) {
+  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
     return { hasError: true, error }
   }
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+  override componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     console.error('App Error:', error, errorInfo)
     
     // Optional: Send error to monitoring service
@@ -22,7 +23,7 @@ class ErrorBoundary extends React.Component {
     }
   }
 
-  render() {
+  override render() {
     if (this.state.hasError) {
       return (
         <div className="h-screen bg-sidebar-bg flex items-center justify-center">
@@ -84,17 +85,17 @@ root.render(
 // Performance monitoring
 if (import.meta.env.PROD) {
   // Optional: Report web vitals
-  import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+  import('web-vitals').then(({ onCLS, onFID, onFCP, onLCP, onTTFB }) => {
     const reportMetric = (metric: any) => {
       console.log('Web Vitals:', metric)
       // Optional: Send to analytics service
     }
 
-    getCLS(reportMetric)
-    getFID(reportMetric)
-    getFCP(reportMetric)
-    getLCP(reportMetric)
-    getTTFB(reportMetric)
+    onCLS(reportMetric)
+    onFID(reportMetric)
+    onFCP(reportMetric)
+    onLCP(reportMetric)
+    onTTFB(reportMetric)
   }).catch(() => {
     // Ignore web-vitals import errors
   })
