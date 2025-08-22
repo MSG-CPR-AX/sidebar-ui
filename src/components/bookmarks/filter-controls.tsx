@@ -136,7 +136,15 @@ export function FilterControls({
 
         {showSortMenu && (
           <>
-            <div className="fixed inset-0 z-10" onClick={() => setShowSortMenu(false)} />
+            <div
+              role="presentation"
+              className="fixed inset-0 z-10"
+              onClick={() => setShowSortMenu(false)}
+              onContextMenu={(e) => {
+                e.preventDefault()
+                setShowSortMenu(false)
+              }}
+            />
             <div className="dropdown-menu absolute left-0 top-full mt-1 z-20 min-w-40">
               {sortOptions.map((option) => (
                 <button
@@ -178,7 +186,15 @@ export function FilterControls({
 
         {showGroupMenu && (
           <>
-            <div className="fixed inset-0 z-10" onClick={() => setShowGroupMenu(false)} />
+            <div
+              role="presentation"
+              className="fixed inset-0 z-10"
+              onClick={() => setShowGroupMenu(false)}
+              onContextMenu={(e) => {
+                e.preventDefault()
+                setShowGroupMenu(false)
+              }}
+            />
             <div className="dropdown-menu absolute left-0 top-full mt-1 z-20 min-w-44">
               {groupOptions.map((option) => (
                 <button
@@ -224,7 +240,15 @@ export function FilterControls({
 
             {showTagsMenu && (
               <>
-                <div className="fixed inset-0 z-10" onClick={() => setShowTagsMenu(false)} />
+                <div
+                  role="presentation"
+                  className="fixed inset-0 z-10"
+                  onClick={() => setShowTagsMenu(false)}
+                  onContextMenu={(e) => {
+                    e.preventDefault()
+                    setShowTagsMenu(false)
+                  }}
+                />
                 <div className="dropdown-menu absolute right-0 top-full mt-1 z-20 min-w-48 max-h-60 overflow-y-auto">
                   {availableTags.map((tag) => (
                     <button
@@ -268,7 +292,15 @@ export function FilterControls({
 
             {showCategoriesMenu && (
               <>
-                <div className="fixed inset-0 z-10" onClick={() => setShowCategoriesMenu(false)} />
+                <div
+                  role="presentation"
+                  className="fixed inset-0 z-10"
+                  onClick={() => setShowCategoriesMenu(false)}
+                  onContextMenu={(e) => {
+                    e.preventDefault()
+                    setShowCategoriesMenu(false)
+                  }}
+                />
                 <div className="dropdown-menu absolute right-0 top-full mt-1 z-20 min-w-48 max-h-60 overflow-y-auto">
                   {availableCategories.map((category) => (
                     <button
@@ -320,7 +352,15 @@ export function FilterControls({
 
           {showColorsMenu && (
             <>
-              <div className="fixed inset-0 z-10" onClick={() => setShowColorsMenu(false)} />
+              <div
+                role="presentation"
+                className="fixed inset-0 z-10"
+                onClick={() => setShowColorsMenu(false)}
+                onContextMenu={(e) => {
+                  e.preventDefault()
+                  setShowColorsMenu(false)
+                }}
+              />
               <div className="dropdown-menu absolute right-0 top-full mt-1 z-20 min-w-36">
                 {colorOptions.map((color) => (
                   <button

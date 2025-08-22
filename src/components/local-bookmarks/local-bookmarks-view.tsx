@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { clsx } from 'clsx'
 import { TabContent, EmptyState } from '@/components/layout/layout'
@@ -37,7 +37,7 @@ export interface LocalBookmarksViewProps {
 export function LocalBookmarksView({ searchQuery, className }: LocalBookmarksViewProps) {
   const [bookmarks, setBookmarks] = useState<BookmarkNode[]>([])
   const [expandedFolders, setExpandedFolders] = useState<Set<string>>(new Set())
-  const [selectedBookmarks, setSelectedBookmarks] = useState<Set<string>>(new Set())
+  const selectedBookmarks = new Set<string>()
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [contextMenu, setContextMenu] = useState<{
@@ -119,7 +119,6 @@ export function LocalBookmarksView({ searchQuery, className }: LocalBookmarksVie
         // For bookmarks, include if title or URL matches
         return node
       }
-      
       return null
     }
 
@@ -290,9 +289,8 @@ export function LocalBookmarksView({ searchQuery, className }: LocalBookmarksVie
 
   // Render bookmark node
   const renderBookmark = useCallback((
-    node: BookmarkNode, 
-    level: number = 0,
-    parentId?: string
+    node: BookmarkNode,
+    level: number = 0
   ) => {
     const isFolder = !!node.children
     const isExpanded = expandedFolders.has(node.id)
@@ -312,6 +310,15 @@ export function LocalBookmarksView({ searchQuery, className }: LocalBookmarksVie
               toggleFolder(node.id)
             } else {
               handleBookmarkOpen(node)
+            }
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              if (isFolder) {
+                toggleFolder(node.id)
+              } else {
+                handleBookmarkOpen(node)
+              }
             }
           }}
           onContextMenu={(e) => handleContextMenu(e, node)}
@@ -359,7 +366,7 @@ export function LocalBookmarksView({ searchQuery, className }: LocalBookmarksVie
         {isFolder && isExpanded && node.children && (
           <div>
             {node.children.map(child => 
-              renderBookmark(child, level + 1, node.id)
+              renderBookmark(child, level + 1)
             )}
           </div>
         )}
@@ -454,8 +461,13 @@ export function LocalBookmarksView({ searchQuery, className }: LocalBookmarksVie
       {contextMenu && (
         <>
           <div
+            role="presentation"
             className="fixed inset-0 z-20"
             onClick={() => setContextMenu(null)}
+            onContextMenu={(e) => {
+              e.preventDefault()
+              setContextMenu(null)
+            }}
           />
           <div
             className="dropdown-menu fixed z-30"

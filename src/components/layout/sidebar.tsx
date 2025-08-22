@@ -1,3 +1,4 @@
+import React from 'react'
 import { clsx } from 'clsx'
 import { BookOpen, Folder, Tag, Settings, Home } from 'lucide-react'
 
@@ -51,7 +52,7 @@ const tabs: TabItem[] = [
 
 export function Sidebar({ activeTab, onTabChange, className }: SidebarProps) {
   return (
-    <aside 
+    <div
       className={clsx(
         'flex flex-col bg-sidebar-bg border-r border-sidebar-border',
         className
@@ -121,7 +122,7 @@ export function Sidebar({ activeTab, onTabChange, className }: SidebarProps) {
           <span>Connected</span>
         </div>
       </div>
-    </aside>
+    </div>
   )
 }
 

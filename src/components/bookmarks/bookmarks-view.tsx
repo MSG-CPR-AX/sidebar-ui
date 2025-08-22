@@ -4,7 +4,7 @@ import { clsx } from 'clsx'
 import { BookmarkList } from './bookmark-list'
 import { FilterControls } from './filter-controls'
 import { TabContent } from '@/components/layout/layout'
-import { useBookmarks, useBookmarkSearch } from '@/hooks/use-bookmarks'
+import { useBookmarks } from '@/hooks/use-bookmarks'
 import type { Bookmark } from '@/types/api'
 
 export interface BookmarksViewProps {

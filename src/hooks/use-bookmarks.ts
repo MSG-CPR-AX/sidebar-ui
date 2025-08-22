@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { api, queryKeys, ApiError } from '@/lib/api-client'
-import type { Bookmark, CategoryNode } from '@/types/api'
+import type { Bookmark } from '@/types/api'
 
 // Hook for fetching all bookmarks
 export function useBookmarks() {

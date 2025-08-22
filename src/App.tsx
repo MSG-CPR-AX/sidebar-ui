@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { Layout } from '@/components/layout/layout'
@@ -67,8 +67,8 @@ function App() {
       document.dispatchEvent(event)
     } else if (activeTab === 'bookmarks') {
       // Route to GitLab for creating new bookmark
-      const gitLabBaseUrl = import.meta.env.VITE_GITLAB_BASE_URL || 'https://gitlab.com'
-      const projectPath = import.meta.env.VITE_GITLAB_PROJECT_PATH || ''
+      const gitLabBaseUrl = import.meta.env.VITE_GITLAB_BASE_URL ?? 'https://gitlab.com'
+      const projectPath = import.meta.env.VITE_GITLAB_PROJECT_PATH ?? ''
       const newBookmarkUrl = `${gitLabBaseUrl}/${projectPath}/-/new/main?file_name=bookmarks.yml`
       window.open(newBookmarkUrl, '_blank', 'noopener,noreferrer')
     }
@@ -177,9 +177,9 @@ function App() {
       
       {/* Development tools */}
       {import.meta.env.DEV && (
-        <ReactQueryDevtools 
+        <ReactQueryDevtools
           initialIsOpen={false}
-          position="bottom-right"
+          position="bottom"
         />
       )}
     </QueryClientProvider>

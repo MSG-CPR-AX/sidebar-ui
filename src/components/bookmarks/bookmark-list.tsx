@@ -2,7 +2,7 @@ import { useMemo, useRef, useCallback } from 'react'
 import { useVirtualizer } from '@tanstack/react-virtual'
 import { clsx } from 'clsx'
 import { BookmarkItem } from './bookmark-item'
-import { LoadingState, BookmarkListSkeleton } from '@/components/ui/loading'
+import { BookmarkListSkeleton } from '@/components/ui/loading'
 import { EmptyState } from '@/components/layout/layout'
 import { BookOpen, Search as SearchIcon } from 'lucide-react'
 import type { Bookmark } from '@/types/api'
@@ -121,13 +121,13 @@ export function BookmarkList({
       
       switch (groupBy) {
         case 'category':
-          groupKey = bookmark.category || 'Uncategorized'
+          groupKey = bookmark.category ?? 'Uncategorized'
           break
         case 'domain':
           groupKey = bookmark.domain
           break
         case 'tags':
-          groupKey = bookmark.tags?.[0] || 'Untagged'
+          groupKey = bookmark.tags?.[0] ?? 'Untagged'
           break
         default:
           groupKey = 'All'

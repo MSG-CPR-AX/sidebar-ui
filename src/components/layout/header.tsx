@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+import { useHotkeys } from 'react-hotkeys-hook'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Search, Plus, Filter, MoreVertical, X } from 'lucide-react'
@@ -24,27 +25,23 @@ export function Header({
   className,
 }: HeaderProps) {
   const [isSearchFocused, setIsSearchFocused] = useState(false)
+  const searchInputRef = useRef<HTMLInputElement>(null)
 
   const handleClearSearch = () => {
     onSearchChange('')
   }
 
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    // Command/Ctrl + K should focus search
-    if ((event.metaKey || event.ctrlKey) && event.key === 'k') {
-      event.preventDefault()
-      const searchInput = event.currentTarget.querySelector('input')
-      searchInput?.focus()
-    }
-  }
+  useHotkeys('mod+k', (event) => {
+    event.preventDefault()
+    searchInputRef.current?.focus()
+  }, { enableOnContentEditable: true })
 
   return (
-    <header 
+    <header
       className={clsx(
         'flex items-center gap-3 px-4 py-3 border-b border-sidebar-border bg-sidebar-bg',
         className
       )}
-      onKeyDown={handleKeyDown}
     >
       {/* Logo/Title */}
       <div className="flex items-center gap-2 min-w-0">
@@ -60,6 +57,7 @@ export function Header({
       <div className="flex-1 max-w-md">
         <div className="relative">
           <Input
+            ref={searchInputRef}
             variant="search"
             placeholder="Search bookmarks... (⌘K)"
             value={searchValue}

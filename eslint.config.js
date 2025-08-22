@@ -10,10 +10,13 @@ import jsxA11y from 'eslint-plugin-jsx-a11y'
 export default [
   { ignores: ['dist'] },
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ['src/**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+        chrome: 'readonly',
+      },
       parser: tsparser,
       parserOptions: {
         ecmaFeatures: {

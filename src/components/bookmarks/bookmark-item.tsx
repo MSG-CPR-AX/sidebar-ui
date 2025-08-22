@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { clsx } from 'clsx'
 import { MoreVertical, ExternalLink, Pin, Star, Edit3, Copy, Trash2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -34,7 +34,7 @@ export function BookmarkItem({
   className,
 }: BookmarkItemProps) {
   const [showMenu, setShowMenu] = useState(false)
-  const [favicon, setFavicon] = useState(`https://www.google.com/s2/favicons?domain=${bookmark.domain}&sz=16`)
+  const [favicon] = useState(`https://www.google.com/s2/favicons?domain=${bookmark.domain}&sz=16`)
   const [faviconError, setFaviconError] = useState(false)
 
   const handleClick = (event: React.MouseEvent) => {
@@ -111,7 +111,7 @@ export function BookmarkItem({
       onKeyDown={handleKeyDown}
       onContextMenu={handleContextMenu}
       tabIndex={0}
-      role="button"
+      role="option"
       aria-label={`Bookmark: ${bookmark.name}`}
       aria-selected={isSelected}
     >
@@ -207,8 +207,13 @@ export function BookmarkItem({
             <>
               {/* Backdrop */}
               <div
+                role="presentation"
                 className="fixed inset-0 z-10"
                 onClick={() => setShowMenu(false)}
+                onContextMenu={(e) => {
+                  e.preventDefault();
+                  setShowMenu(false);
+                }}
               />
               
               {/* Menu */}

@@ -1,19 +1,28 @@
-import { StrictMode } from 'react'
+import React, { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App'
 
 // Error boundary for the entire application
-class ErrorBoundary extends React.Component {
-  constructor(props: any) {
+interface ErrorBoundaryProps {
+  children: React.ReactNode
+}
+
+interface ErrorBoundaryState {
+  hasError: boolean
+  error: Error | null
+}
+
+class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+  constructor(props: ErrorBoundaryProps) {
     super(props)
     this.state = { hasError: false, error: null }
   }
 
-  static getDerivedStateFromError(error: Error) {
+  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
     return { hasError: true, error }
   }
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+  override componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     console.error('App Error:', error, errorInfo)
     
     // Optional: Send error to monitoring service
@@ -22,7 +31,7 @@ class ErrorBoundary extends React.Component {
     }
   }
 
-  render() {
+  override render() {
     if (this.state.hasError) {
       return (
         <div className="h-screen bg-sidebar-bg flex items-center justify-center">
