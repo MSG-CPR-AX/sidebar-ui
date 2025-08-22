@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SideBeam✨ - Bookmark Manager</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/icons/icon-32.png" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Content Security Policy for Chrome Extension -->
+    <meta 
+      http-equiv="Content-Security-Policy" 
+      content="
+        default-src 'self';
+        script-src 'self' 'unsafe-eval';
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        img-src 'self' data: https: http:;
+        font-src 'self' https://fonts.gstatic.com;
+        connect-src 'self' https:;
+      "
+    />
+    
+    <!-- Theme color for browser UI -->
+    <meta name="theme-color" content="#0b0b0f" />
+    
+    <!-- Prevent zoom on mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <!-- Extension-specific meta -->
+    <meta name="description" content="Bookmark sharing application for closed-network Chrome users with GitLab integration" />
+    <meta name="author" content="SideBeam Team" />
+    
+    <!-- Preload critical resources -->
+    <link rel="modulepreload" href="/src/main.tsx" />
+    
+    <!-- Base styles to prevent FOUC -->
+    <style>
+      /* Minimal critical CSS to prevent flash of unstyled content */
+      html {
+        background-color: #0b0b0f;
+        color: #e5e5e5;
+        font-family: Inter, system-ui, -apple-system, sans-serif;
+      }
+      
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        overflow: hidden;
+      }
+      
+      #root {
+        height: 100%;
+        width: 100%;
+      }
+      
+      /* Loading spinner */
+      .loading-spinner {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+      
+      .spinner {
+        width: 32px;
+        height: 32px;
+        border: 3px solid #3a3a4b;
+        border-top: 3px solid #3b82f6;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      .loading-text {
+        color: #8a8a9f;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      
+      /* Hide loading when React takes over */
+      .react-loaded .loading-spinner {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- App root -->
+    <div id="root">
+      <!-- Loading state while React initializes -->
+      <div class="loading-spinner">
+        <div class="spinner" aria-label="Loading"></div>
+        <div class="loading-text">Loading SideBeam...</div>
+      </div>
+    </div>
+    
+    <!-- Main application script -->
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Mark as React loaded to hide loading spinner -->
+    <script>
+      // Remove loading spinner after React renders
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+          document.body.classList.add('react-loaded');
+        }, 100);
+      });
+      
+      // Extension-specific initialization
+      if (typeof chrome !== 'undefined' && chrome.sidePanel) {
+        console.log('SideBeam side panel initialized');
+      }
+      
+      // Error handling for extension context
+      window.addEventListener('error', (event) => {
+        console.error('Global error:', event.error);
+        
+        // Show user-friendly error if React fails to load
+        if (event.error && event.error.message?.includes('Failed to resolve module')) {
+          const root = document.getElementById('root');
+          if (root) {
+            root.innerHTML = `
+              <div style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                padding: 2rem;
+                text-align: center;
+                background: #0b0b0f;
+                color: #e5e5e5;
+              ">
+                <h2 style="margin-bottom: 1rem; color: #ef4444;">Extension Load Error</h2>
+                <p style="margin-bottom: 2rem; color: #8a8a9f; line-height: 1.5;">
+                  SideBeam failed to load properly. This might be due to a corrupted installation or network issues.
+                </p>
+                <button 
+                  onclick="chrome.runtime.reload()"
+                  style="
+                    background: #3b82f6;
+                    color: white;
+                    border: none;
+                    padding: 0.75rem 1.5rem;
+                    border-radius: 0.5rem;
+                    cursor: pointer;
+                    font-weight: 500;
+                  "
+                >
+                  Reload Extension
+                </button>
+              </div>
+            `;
+          }
+        }
+      });
+      
+      // Unhandled promise rejection handling
+      window.addEventListener('unhandledrejection', (event) => {
+        console.error('Unhandled promise rejection:', event.reason);
+        // Optionally prevent default behavior
+        // event.preventDefault();
+      });
+    </script>
+  </body>
+</html>
