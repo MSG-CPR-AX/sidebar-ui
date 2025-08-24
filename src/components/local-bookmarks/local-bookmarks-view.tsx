@@ -57,7 +57,7 @@ export function LocalBookmarksView({ searchQuery, className }: LocalBookmarksVie
       }
 
       const bookmarkTree = await chrome.bookmarks.getTree()
-      const rootNodes = bookmarkTree[0]?.children || []
+      const rootNodes = bookmarkTree[0]?.children ?? []
       
       setBookmarks(rootNodes)
     } catch (err) {
@@ -101,7 +101,7 @@ export function LocalBookmarksView({ searchQuery, className }: LocalBookmarksVie
 
     const searchNode = (node: BookmarkNode): BookmarkNode | null => {
       const matchesTitle = node.title.toLowerCase().includes(searchTerm)
-      const matchesUrl = node.url?.toLowerCase().includes(searchTerm) || false
+      const matchesUrl = node.url?.toLowerCase().includes(searchTerm) ?? false
       
       if (node.children) {
         // For folders, check if any children match
@@ -119,6 +119,7 @@ export function LocalBookmarksView({ searchQuery, className }: LocalBookmarksVie
         // For bookmarks, include if title or URL matches
         return node
       }
+
       return null
     }
 
@@ -189,7 +190,11 @@ export function LocalBookmarksView({ searchQuery, className }: LocalBookmarksVie
       )
 
       if (confirmDelete) {
-        await chrome.bookmarks.remove(bookmark.id)
+        if (bookmark.children) {
+          await chrome.bookmarks.removeTree(bookmark.id)
+        } else {
+          await chrome.bookmarks.remove(bookmark.id)
+        }
       }
     } catch (error) {
       console.error('Failed to delete bookmark:', error)
@@ -223,7 +228,7 @@ export function LocalBookmarksView({ searchQuery, className }: LocalBookmarksVie
       
       if (title && url) {
         await chrome.bookmarks.create({
-          parentId: parentId || '1', // Default to bookmarks bar
+          parentId: parentId ?? '1', // Default to bookmarks bar
           title,
           url,
         })
@@ -241,7 +246,7 @@ export function LocalBookmarksView({ searchQuery, className }: LocalBookmarksVie
       
       if (title) {
         await chrome.bookmarks.create({
-          parentId: parentId || '1', // Default to bookmarks bar
+          parentId: parentId ?? '1', // Default to bookmarks bar
           title,
         })
       }
