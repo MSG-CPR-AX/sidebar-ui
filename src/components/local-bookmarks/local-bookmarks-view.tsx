@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { clsx } from 'clsx'
 import { TabContent, EmptyState } from '@/components/layout/layout'
@@ -45,9 +45,14 @@ export function LocalBookmarksView({ searchQuery, className }: LocalBookmarksVie
     y: number
     bookmark: BookmarkNode
   } | null>(null)
+  // Internals for race protection and debouncing
+  const requestIdRef = useRef(0)
+  const isMountedRef = useRef(true)
+  const debounceTimerRef = useRef<number | null>(null)
 
-  // Load bookmarks from Chrome API
+  // Load bookmarks from Chrome API with race protection
   const loadBookmarks = useCallback(async () => {
+    const currentReq = ++requestIdRef.current
     try {
       setIsLoading(true)
       setError(null)
@@ -57,37 +62,111 @@ export function LocalBookmarksView({ searchQuery, className }: LocalBookmarksVie
       }
 
       const bookmarkTree = await chrome.bookmarks.getTree()
+      if (!isMountedRef.current || currentReq !== requestIdRef.current) return
       const rootNodes = bookmarkTree[0]?.children ?? []
       
       setBookmarks(rootNodes)
     } catch (err) {
       console.error('Failed to load bookmarks:', err)
-      setError(err instanceof Error ? err.message : 'Failed to load bookmarks')
+      if (isMountedRef.current && currentReq === requestIdRef.current) {
+        setError(err instanceof Error ? err.message : 'Failed to load bookmarks')
+      }
     } finally {
-      setIsLoading(false)
+      if (isMountedRef.current && currentReq === requestIdRef.current) {
+        setIsLoading(false)
+      }
     }
   }, [])
 
-  // Set up Chrome bookmarks event listeners
+  // Set up Chrome bookmarks event listeners with debounce and proper cleanup
   useEffect(() => {
+    isMountedRef.current = true
+
+    const scheduleReload = () => {
+      if (debounceTimerRef.current != null) {
+        window.clearTimeout(debounceTimerRef.current)
+      }
+      debounceTimerRef.current = window.setTimeout(() => {
+        // Only latest invocation applies due to requestIdRef in load
+        loadBookmarks()
+      }, 200)
+    }
+
+    // Guards
+    if (!chrome?.bookmarks) {
+      // Try an initial load (will error gracefully if API unavailable)
+      loadBookmarks()
+      return () => {
+        isMountedRef.current = false
+        if (debounceTimerRef.current != null) {
+          window.clearTimeout(debounceTimerRef.current)
+          debounceTimerRef.current = null
+        }
+      }
+    }
+
+    // Typed handlers (params currently unused)
+    const handleCreated = (_id: string, _bookmark: chrome.bookmarks.BookmarkTreeNode) => {
+      void _id; void _bookmark
+      scheduleReload()
+    }
+    const handleRemoved = (
+      _id: string,
+      _removeInfo: { parentId: string; index: number; node: chrome.bookmarks.BookmarkTreeNode }
+    ) => {
+      void _id; void _removeInfo
+      scheduleReload()
+    }
+    const handleChanged = (
+      _id: string,
+      _changeInfo: { title: string; url?: string }
+    ) => {
+      void _id; void _changeInfo
+      scheduleReload()
+    }
+    const handleMoved = (
+      _id: string,
+      _moveInfo: { parentId: string; index: number; oldParentId: string; oldIndex: number }
+    ) => {
+      void _id; void _moveInfo
+      scheduleReload()
+    }
+    const handleImportBegan = () => {
+      // no-op: could set a flag if needed
+    }
+    const handleImportEnded = () => {
+      scheduleReload()
+    }
+
+    try {
+      chrome.bookmarks.onCreated?.addListener(handleCreated)
+      chrome.bookmarks.onRemoved?.addListener(handleRemoved)
+      chrome.bookmarks.onChanged?.addListener(handleChanged)
+      chrome.bookmarks.onMoved?.addListener(handleMoved)
+      chrome.bookmarks.onImportBegan?.addListener(handleImportBegan)
+      chrome.bookmarks.onImportEnded?.addListener(handleImportEnded)
+    } catch (e) {
+      console.warn('Failed to register bookmarks listeners', e)
+    }
+
+    // Initial load after registering listeners
     loadBookmarks()
 
-    if (chrome?.bookmarks) {
-      const handleBookmarkCreated = () => loadBookmarks()
-      const handleBookmarkRemoved = () => loadBookmarks()
-      const handleBookmarkChanged = () => loadBookmarks()
-      const handleBookmarkMoved = () => loadBookmarks()
-
-      chrome.bookmarks.onCreated.addListener(handleBookmarkCreated)
-      chrome.bookmarks.onRemoved.addListener(handleBookmarkRemoved)
-      chrome.bookmarks.onChanged.addListener(handleBookmarkChanged)
-      chrome.bookmarks.onMoved.addListener(handleBookmarkMoved)
-
-      return () => {
-        chrome.bookmarks.onCreated.removeListener(handleBookmarkCreated)
-        chrome.bookmarks.onRemoved.removeListener(handleBookmarkRemoved)
-        chrome.bookmarks.onChanged.removeListener(handleBookmarkChanged)
-        chrome.bookmarks.onMoved.removeListener(handleBookmarkMoved)
+    return () => {
+      isMountedRef.current = false
+      if (debounceTimerRef.current != null) {
+        window.clearTimeout(debounceTimerRef.current)
+        debounceTimerRef.current = null
+      }
+      try {
+        chrome.bookmarks.onCreated?.removeListener(handleCreated)
+        chrome.bookmarks.onRemoved?.removeListener(handleRemoved)
+        chrome.bookmarks.onChanged?.removeListener(handleChanged)
+        chrome.bookmarks.onMoved?.removeListener(handleMoved)
+        chrome.bookmarks.onImportBegan?.removeListener(handleImportBegan)
+        chrome.bookmarks.onImportEnded?.removeListener(handleImportEnded)
+      } catch (e) {
+        console.warn('Failed to remove bookmarks listeners', e)
       }
     }
   }, [loadBookmarks])
