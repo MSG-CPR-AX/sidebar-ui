@@ -2,7 +2,9 @@ import { useState, useEffect, useCallback } from 'react'
 import { debounce } from '../utils/debounce'
 
 export const useLocalBookmarks = () => {
-  const [bookmarks, setBookmarks] = useState<chrome.bookmarks.BookmarkTreeNode[]>([])
+  const [bookmarks, setBookmarks] = useState<
+    chrome.bookmarks.BookmarkTreeNode[]
+  >([])
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
 

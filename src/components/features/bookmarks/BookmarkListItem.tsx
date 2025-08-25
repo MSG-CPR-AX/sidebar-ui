@@ -57,7 +57,7 @@ export const BookmarkListItem = ({
     <ContextMenuWrapper position={position} menuItems={menuItems}>
       <div
         onContextMenu={handleContextMenu}
-        className="group flex items-start rounded-lg p-2 hover:bg-gray-800"
+        className="group hover:bg-surface flex items-start rounded-lg p-2.5"
       >
         <img
           src={`https://www.google.com/s2/favicons?domain=${domain}&sz=16`}
@@ -66,20 +66,20 @@ export const BookmarkListItem = ({
         />
         <div className="flex-grow">
           <div className="flex items-center">
-            <span className="text-sm font-medium text-white">
+            <span className="text-primary text-sm font-medium">
               {bookmark.title}
             </span>
             {bookmark.isPinned && (
-              <Icon name="Pin" size={14} className="ml-2 text-gray-400" />
+              <Icon name="Pin" size={14} className="text-secondary ml-2" />
             )}
           </div>
-          <p className="text-xs text-gray-400">{domain}</p>
+          <p className="text-secondary text-xs">{domain}</p>
           {bookmarkTags.length > 0 && (
-            <div className="mt-1 flex items-center gap-1">
+            <div className="mt-1 flex items-center gap-1.5">
               {bookmarkTags.map((tag) => (
                 <span
                   key={tag.id}
-                  className="rounded-full bg-blue-900 px-2 py-0.5 text-xs text-blue-300"
+                  className="bg-accent-blue/10 text-accent-blue rounded-full px-2 py-0.5 text-xs"
                 >
                   {tag.name}
                 </span>
@@ -90,11 +90,11 @@ export const BookmarkListItem = ({
         <div className="flex items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100">
           <button
             onClick={() => onEdit(bookmark)}
-            className="p-1 text-gray-400 hover:text-white"
+            className="text-secondary hover:text-primary p-1"
           >
             <Icon name="FilePenLine" size={16} />
           </button>
-          <button className="p-1 text-gray-400 hover:text-white">
+          <button className="text-secondary hover:text-primary p-1">
             <Icon name="MoveHorizontal" size={16} />
           </button>
         </div>

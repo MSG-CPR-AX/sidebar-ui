@@ -3,29 +3,56 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { LocalBookmarkTree } from './LocalBookmarkTree'
 import { useLocalBookmarks } from '../../../lib/hooks/useLocalBookmarks'
 
-// Mock the hook at the top level
 vi.mock('../../../lib/hooks/useLocalBookmarks')
 
 const mockedUseLocalBookmarks = vi.mocked(useLocalBookmarks)
 
+const mockBookmarkTree: chrome.bookmarks.BookmarkTreeNode[] = [
+  {
+    id: '1',
+    title: 'Root Folder',
+    parentId: '0',
+    index: 0,
+    dateGroupModified: Date.now(),
+    unmodifiable: 'managed',
+    syncing: false,
+    children: [
+      {
+        id: '2',
+        title: 'Test Bookmark',
+        url: 'https://example.com',
+        parentId: '1',
+        index: 0,
+        dateAdded: Date.now(),
+        unmodifiable: 'managed',
+        syncing: false,
+      },
+    ],
+  },
+  {
+    id: '3',
+    title: 'Empty Folder',
+    parentId: '0',
+    index: 1,
+    dateGroupModified: Date.now(),
+    unmodifiable: 'managed',
+    children: [],
+    syncing: false,
+  },
+]
+
 describe('LocalBookmarkTree', () => {
   beforeEach(() => {
-    // Reset mocks before each test
     vi.clearAllMocks()
-  })
-
-  it('renders the root folders and bookmarks from mock data', () => {
     mockedUseLocalBookmarks.mockReturnValue({
-      bookmarks: [
-        { id: '1', title: 'Root Folder', children: [{ id: '2', title: 'Test Bookmark', url: 'https://example.com' }] },
-        { id: '3', title: 'Empty Folder', children: [] },
-      ],
+      bookmarks: mockBookmarkTree,
       loading: false,
       error: null,
     })
+  })
 
+  it('renders the root folders and bookmarks from mock data', () => {
     render(<LocalBookmarkTree />)
-
     expect(screen.getByText('Root Folder')).toBeInTheDocument()
     expect(screen.getByText('Empty Folder')).toBeInTheDocument()
   })

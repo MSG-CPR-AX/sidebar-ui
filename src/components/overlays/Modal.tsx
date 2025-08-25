@@ -25,30 +25,28 @@ export const Modal = ({ isOpen, onClose, title, children }: ModalProps) => {
   if (!isOpen) return null
 
   return ReactDOM.createPortal(
-    // The overlay for closing the modal
     <div
-      className="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center bg-black"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
       onClick={onClose}
       onKeyPress={(e) => (e.key === 'Enter' || e.key === ' ') && onClose()}
       role="button"
       tabIndex={0}
       aria-label="Close modal"
     >
-      {/* The modal panel itself */}
       <div
-        className="w-full max-w-md rounded-lg bg-gray-800 shadow-xl"
-        onClick={(e) => e.stopPropagation()} // Stop click from bubbling to the overlay
+        className="bg-surface w-full max-w-md rounded-lg shadow-xl"
+        onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
       >
-        <div className="flex items-center justify-between border-b border-gray-700 p-4">
-          <h2 id="modal-title" className="text-lg font-semibold">
+        <div className="border-divider flex items-center justify-between border-b p-4">
+          <h2 id="modal-title" className="text-primary text-lg font-semibold">
             {title}
           </h2>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-white"
+            className="text-secondary hover:text-primary"
             aria-label="Close"
           >
             <Icon name="X" size={20} />

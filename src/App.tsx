@@ -28,7 +28,12 @@ function App() {
   const renderContent = () => {
     switch (activeView) {
       case 'Bookmarks':
-        return <BookmarkList searchTerm={searchTerm} onEditBookmark={handleEditBookmark} />
+        return (
+          <BookmarkList
+            searchTerm={searchTerm}
+            onEditBookmark={handleEditBookmark}
+          />
+        )
       case 'Folders':
         return <FolderTree />
       case 'Local':
@@ -40,7 +45,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex h-screen flex-col bg-gray-900 text-white">
+      <div className="bg-background text-primary flex h-screen flex-col">
         <TopBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <div className="flex flex-grow overflow-hidden">
           <LeftNav activeItem={activeView} setActiveItem={setActiveView} />

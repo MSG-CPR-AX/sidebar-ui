@@ -1,14 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, ReactNode } from 'react'
 import ReactDOM from 'react-dom'
 
 interface MenuPosition {
   x: number
   y: number
-}
-
-interface ContextMenuProps {
-  children: React.ReactNode
-  menuItems: React.ReactNode
 }
 
 export const useContextMenu = () => {
@@ -41,7 +36,11 @@ export const ContextMenuWrapper = ({
   children,
   menuItems,
   position,
-}: ContextMenuProps & { position: MenuPosition | null }) => {
+}: {
+  children: ReactNode
+  menuItems: ReactNode
+  position: MenuPosition | null
+}) => {
   if (!position) return <>{children}</>
 
   return (
@@ -49,7 +48,7 @@ export const ContextMenuWrapper = ({
       {children}
       {ReactDOM.createPortal(
         <div
-          className="fixed z-50 rounded-lg border border-gray-600 bg-gray-700 py-1 shadow-lg"
+          className="border-divider bg-surface fixed z-50 rounded-lg border py-1 shadow-lg"
           style={{ top: position.y, left: position.x }}
         >
           {menuItems}
@@ -64,12 +63,12 @@ export const ContextMenuItem = ({
   children,
   onClick,
 }: {
-  children: React.ReactNode
+  children: ReactNode
   onClick: () => void
 }) => (
   <button
     onClick={onClick}
-    className="flex w-full items-center px-3 py-1.5 text-left text-sm text-gray-200 hover:bg-blue-600 hover:text-white"
+    className="text-primary hover:bg-accent-blue flex w-full items-center px-3 py-1.5 text-left text-sm hover:text-white"
   >
     {children}
   </button>

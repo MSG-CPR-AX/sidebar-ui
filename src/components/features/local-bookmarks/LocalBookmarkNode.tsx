@@ -26,14 +26,24 @@ export const LocalBookmarkNode = ({ node, level }: LocalBookmarkNodeProps) => {
         className="flex cursor-pointer items-center rounded p-1 hover:bg-gray-800"
         style={{ paddingLeft: `${level * 1.5}rem` }}
         onClick={handleToggle}
-        onKeyPress={(e) => (e.key === 'Enter' || e.key === ' ') && handleToggle()}
+        onKeyPress={(e) =>
+          (e.key === 'Enter' || e.key === ' ') && handleToggle()
+        }
         role="button"
         tabIndex={0}
       >
         {isFolder ? (
           <>
-            <Icon name={isOpen ? 'ChevronDown' : 'ChevronRight'} size={16} className="mr-1" />
-            <Icon name={isOpen ? 'FolderOpen' : 'Folder'} size={16} className="mr-2 text-yellow-500" />
+            <Icon
+              name={isOpen ? 'ChevronDown' : 'ChevronRight'}
+              size={16}
+              className="mr-1"
+            />
+            <Icon
+              name={isOpen ? 'FolderOpen' : 'Folder'}
+              size={16}
+              className="mr-2 text-yellow-500"
+            />
           </>
         ) : (
           <img
