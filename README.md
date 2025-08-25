@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# SideBeam - Bookmark Sharing Chrome Extension
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+SideBeam is a Chrome extension that provides a powerful bookmark sharing and management tool within the browser's side panel. It is designed for teams to share and manage common URLs within a closed network, with all bookmark data being version-controlled in GitLab.
 
-## Available Scripts
+This repository contains the frontend UI for the SideBeam extension, built with React, TypeScript, and Vite.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+-   View and search shared bookmarks from GitLab.
+-   Organize bookmarks with folders and tags.
+-   Drag-and-drop interface for folder management.
+-   Seamless integration with the Chrome Side Panel.
+-   (Future) Sync with local browser bookmarks.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-   **Framework**: React 18 + TypeScript
+-   **Build Tool**: Vite
+-   **Styling**: Tailwind CSS
+-   **State Management**: TanStack Query
+-   **Drag & Drop**: dnd-kit
+-   **Testing**: Vitest + React Testing Library
+-   **Linting & Formatting**: ESLint, Prettier
 
-### `npm test`
+## Development
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+-   Node.js (v18 or later)
+-   npm
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+    cd sidebar-ui
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-### `npm run eject`
+### Running the Development Server
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The application can be run against a mock server (for UI development) or a live backend.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-   **To run with the mock server:**
+    The mock server is enabled by default in development mode.
+    ```bash
+    npm run dev
+    ```
+    This will start a Vite development server.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Building the Extension
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To build the extension for production, run:
+```bash
+npm run build
+```
+This will create a `dist/` directory containing the optimized and bundled extension files, ready to be loaded into Chrome.
 
-## Learn More
+### Loading the Extension in Chrome
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1.  Open Chrome and navigate to `chrome://extensions`.
+2.  Enable "Developer mode" in the top right corner.
+3.  Click "Load unpacked".
+4.  Select the `dist` directory from this project.
+5.  The SideBeam icon should appear in your extensions list, and you can open it in the side panel.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Testing
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To run the unit and integration tests, use:
+```bash
+npm test
+```

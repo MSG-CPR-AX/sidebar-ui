@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "SideBeam✨",
+  "version": "1.0",
+  "description": "SideBeam✨",
+  "permissions": ["storage", "scripting", "tabs", "sidePanel", "notifications", "bookmarks"],
+  "action": {
+    "default_title": "Click to open panel"
+  },
+  "side_panel": {
+    "default_path": "index.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "index.html",
+        "static/*"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

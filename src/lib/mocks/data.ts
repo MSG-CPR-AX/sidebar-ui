@@ -1,0 +1,71 @@
+import { BookmarkData } from '../types'
+
+export const mockData: BookmarkData = {
+  tags: [
+    { id: 'tag-1', name: 'react', color: 'blue' },
+    { id: 'tag-2', name: 'typescript', color: 'indigo' },
+    { id: 'tag-3', name: 'design-system', color: 'green' },
+    { id: 'tag-4', name: 'performance', color: 'yellow' },
+    { id: 'tag-5', name: 'career', color: 'purple' },
+  ],
+  folders: [
+    {
+      id: 'folder-1',
+      title: 'Frameworks',
+      children: ['folder-2'],
+      parentId: 'root',
+    },
+    {
+      id: 'folder-2',
+      title: 'React Ecosystem',
+      children: [],
+      parentId: 'folder-1',
+    },
+    { id: 'folder-3', title: 'Work', children: [], parentId: 'root' },
+    { id: 'folder-4', title: 'Personal', children: [], parentId: 'root' },
+  ],
+  bookmarks: [
+    {
+      id: 'bm-1',
+      title: 'React Official Docs',
+      url: 'https://react.dev/',
+      description: 'The official documentation for React.',
+      tags: ['tag-1', 'tag-2'],
+      folderId: 'folder-2',
+      isPinned: true,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    },
+    {
+      id: 'bm-2',
+      title: 'Tailwind CSS',
+      url: 'https://tailwindcss.com/',
+      tags: ['tag-3'],
+      folderId: 'folder-1',
+      isPinned: false,
+      color: 'blue',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    },
+    {
+      id: 'bm-3',
+      title: 'Vite Official Docs',
+      url: 'https://vitejs.dev/',
+      tags: [],
+      isPinned: false,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    },
+    {
+      id: 'bm-4',
+      title: 'The Pragmatic Engineer',
+      url: 'https://blog.pragmaticengineer.com/',
+      tags: ['tag-5'],
+      folderId: 'folder-4',
+      isPinned: true,
+      color: 'purple',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    },
+  ],
+}
