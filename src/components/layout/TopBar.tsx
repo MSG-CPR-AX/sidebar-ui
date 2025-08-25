@@ -8,22 +8,22 @@ interface TopBarProps {
 
 export const TopBar = ({ searchTerm, setSearchTerm }: TopBarProps) => {
   return (
-    <header className="border-divider bg-background flex h-14 shrink-0 items-center justify-between border-b p-2">
+    <header className="flex h-14 shrink-0 items-center justify-between border-b border-divider bg-background px-3">
       <div className="flex items-center gap-2">
-        <Icon name="Bookmark" className="text-accent-blue" size={20} />
-        <h1 className="text-lg font-bold">SideBeam</h1>
+        <Icon name="Bookmark" className="text-accent-blue" size={22} />
+        <h1 className="text-lg font-bold text-primary">SideBeam</h1>
       </div>
       <div className="flex items-center gap-1">
-        <div className="relative w-64">
+        <div className="relative w-48 md:w-64">
           <Icon
             name="Search"
             size={16}
-            className="text-secondary absolute top-1/2 left-3 -translate-y-1/2"
+            className="absolute top-1/2 left-3 -translate-y-1/2 text-secondary"
           />
           <input
             type="text"
-            placeholder="Search... (Ctrl+K)"
-            className="bg-surface text-primary placeholder-secondary focus:border-accent-blue focus:ring-accent-blue w-full rounded-lg border border-transparent py-1.5 pr-4 pl-9 text-sm focus:ring-1 focus:outline-none"
+            placeholder="Search..."
+            className="w-full rounded-md border border-transparent bg-surface py-2 pr-4 pl-9 text-sm text-primary placeholder-secondary transition-colors focus:border-accent-blue focus:outline-none focus:ring-1 focus:ring-accent-blue"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />

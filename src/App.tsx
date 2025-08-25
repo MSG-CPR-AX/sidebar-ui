@@ -28,24 +28,19 @@ function App() {
   const renderContent = () => {
     switch (activeView) {
       case 'Bookmarks':
-        return (
-          <BookmarkList
-            searchTerm={searchTerm}
-            onEditBookmark={handleEditBookmark}
-          />
-        )
+        return <BookmarkList searchTerm={searchTerm} onEditBookmark={handleEditBookmark} />
       case 'Folders':
         return <FolderTree />
       case 'Local':
         return <LocalBookmarkTree />
       default:
-        return <div>View not implemented.</div>
+        return <div className="p-4">View not implemented.</div>
     }
   }
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="bg-background text-primary flex h-screen flex-col">
+      <div className="flex h-screen flex-col bg-background text-primary">
         <TopBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <div className="flex flex-grow overflow-hidden">
           <LeftNav activeItem={activeView} setActiveItem={setActiveView} />

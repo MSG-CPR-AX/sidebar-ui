@@ -4,15 +4,28 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#1a1a1a', // A very dark gray
-        surface: '#2a2a2a',    // A slightly lighter gray for cards/panels
-        primary: '#ffffff',     // White text
-        secondary: '#a0a0a0',   // Grayer text for secondary info
-        divider: '#3a3a3a',     // Border color
+        background: '#1C1C1E', // A slightly different dark gray
+        surface: '#2C2C2E',    // A slightly lighter gray for cards/panels
+        primary: '#F2F2F7',     // Off-white for primary text
+        secondary: '#8E8E93',   // Grayer text for secondary info
+        tertiary: '#48484A',    // Even dimmer text
+        divider: '#3A3A3C',     // Border color
         'accent-blue': {
-          DEFAULT: '#3b82f6', // blue-500
-          hover: '#2563eb',   // blue-600
+          DEFAULT: '#0A84FF', // A vibrant blue
+          hover: '#007AFF',   // A slightly darker vibrant blue
         },
+      },
+      borderRadius: {
+        lg: '10px',
+        md: '8px',
+        sm: '6px',
+      },
+      fontSize: {
+        xs: '12px',
+        sm: '14px',
+        base: '16px',
+        lg: '18px',
+        xl: '20px',
       },
     },
   },

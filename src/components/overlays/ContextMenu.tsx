@@ -48,7 +48,7 @@ export const ContextMenuWrapper = ({
       {children}
       {ReactDOM.createPortal(
         <div
-          className="border-divider bg-surface fixed z-50 rounded-lg border py-1 shadow-lg"
+          className="fixed z-50 min-w-[180px] rounded-md border border-divider bg-surface p-1 shadow-2xl"
           style={{ top: position.y, left: position.x }}
         >
           {menuItems}
@@ -68,7 +68,7 @@ export const ContextMenuItem = ({
 }) => (
   <button
     onClick={onClick}
-    className="text-primary hover:bg-accent-blue flex w-full items-center px-3 py-1.5 text-left text-sm hover:text-white"
+    className="flex w-full items-center rounded-sm px-2 py-1.5 text-left text-sm text-primary hover:bg-accent-blue hover:text-white"
   >
     {children}
   </button>
