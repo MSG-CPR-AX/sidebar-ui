@@ -1,15 +1,12 @@
-import React from 'react'
 import { Icon } from '../atoms/Icon'
 
-export type NavItem = 'Bookmarks' | 'Folders' | 'Tags' | 'Settings'
+export type NavItem = 'Bookmarks' | 'Folders' | 'Tags' | 'Local' | 'Settings'
 
-const navItems: {
-  name: NavItem
-  icon: React.ComponentProps<typeof Icon>['name']
-}[] = [
+const navItems: { name: NavItem; icon: React.ComponentProps<typeof Icon>['name'] }[] = [
   { name: 'Bookmarks', icon: 'Bookmark' },
   { name: 'Folders', icon: 'Folder' },
   { name: 'Tags', icon: 'Tag' },
+  { name: 'Local', icon: 'Laptop' },
   { name: 'Settings', icon: 'Settings' },
 ]
 

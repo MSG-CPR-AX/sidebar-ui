@@ -8,6 +8,7 @@ import { BookmarkList } from './components/features/bookmarks/BookmarkList'
 import { FolderTree } from './components/features/folders/FolderTree'
 import { EditBookmarkModal } from './components/features/bookmarks/EditBookmarkModal'
 import { Bookmark } from './lib/types'
+import { LocalBookmarkTree } from './components/features/local-bookmarks/LocalBookmarkTree'
 
 const queryClient = new QueryClient()
 
@@ -27,14 +28,11 @@ function App() {
   const renderContent = () => {
     switch (activeView) {
       case 'Bookmarks':
-        return (
-          <BookmarkList
-            searchTerm={searchTerm}
-            onEditBookmark={handleEditBookmark}
-          />
-        )
+        return <BookmarkList searchTerm={searchTerm} onEditBookmark={handleEditBookmark} />
       case 'Folders':
         return <FolderTree />
+      case 'Local':
+        return <LocalBookmarkTree />
       default:
         return <div>View not implemented.</div>
     }
