@@ -66,10 +66,9 @@ function App() {
       const event = new CustomEvent('create-local-bookmark')
       document.dispatchEvent(event)
     } else if (activeTab === 'bookmarks') {
-      // Route to GitLab for creating new bookmark
-      const gitLabBaseUrl = import.meta.env.VITE_GITLAB_BASE_URL ?? 'https://gitlab.com'
-      const projectPath = import.meta.env.VITE_GITLAB_PROJECT_PATH ?? ''
-      const newBookmarkUrl = `${gitLabBaseUrl}/${projectPath}/-/new/main?file_name=bookmarks.yml`
+      // Route to backend API for creating or managing bookmarks (no direct GitLab calls in UI)
+      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? ''
+      const newBookmarkUrl = `${apiBaseUrl}/bookmarks`
       window.open(newBookmarkUrl, '_blank', 'noopener,noreferrer')
     }
   }
