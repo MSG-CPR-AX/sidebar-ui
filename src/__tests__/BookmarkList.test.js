@@ -1,48 +1,30 @@
-// __tests__/BookmarkList.test.js
-// Basic unit tests for the BookmarkList component.  These tests
-// verify that the component renders the provided bookmarks and
-// invokes callback props when buttons are clicked.  More thorough
-// integration tests could be written to cover virtualization, but
-// here we focus on core behaviours.
-
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import BookmarkList from '../components/BookmarkList';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import App from '../App';
 
-describe('BookmarkList', () => {
-  const sampleBookmarks = [
-    { name: 'Google', url: 'https://google.com', category: 'Search' },
-    { name: 'GitHub', url: 'https://github.com', category: 'Dev' }
-  ];
+// This is now an integration test that checks the whole user flow.
+describe('App Integration Test', () => {
+  test('expands nested folders and shows children on click', async () => {
+    render(<App />);
 
-  test('renders bookmark rows', () => {
-    render(
-      <BookmarkList
-        bookmarks={sampleBookmarks}
-        onSelect={() => {}}
-        onCopy={() => {}}
-        onOpen={() => {}}
-      />
-    );
-    // Only the first row may be visible due to virtualization, so
-    // check that at least the first bookmark name appears in the DOM.
-    expect(screen.getByText('Google')).toBeInTheDocument();
-  });
+    // Wait for the app to finish loading the mock data.
+    // We'll wait for the "DevOps" folder to appear.
+    const devopsFolder = await screen.findByText('DevOps');
+    expect(devopsFolder).toBeInTheDocument();
 
-  test('calls onCopy when copy button is clicked', () => {
-    const handleCopy = jest.fn();
-    render(
-      <BookmarkList
-        bookmarks={sampleBookmarks}
-        onSelect={() => {}}
-        onCopy={handleCopy}
-        onOpen={() => {}}
-      />
-    );
-    // Find the copy button by its title attribute on the first row.
-    const copyButtons = screen.getAllByTitle('로컬에 복사');
-    // Trigger click on first copy button
-    fireEvent.click(copyButtons[0]);
-    expect(handleCopy).toHaveBeenCalledTimes(1);
+    // The "GitLab Docs" bookmark is deeply nested and should not be visible yet.
+    expect(screen.queryByText('GitLab Docs')).not.toBeInTheDocument();
+
+    // Click the top-level "DevOps" folder to open it.
+    await userEvent.click(devopsFolder);
+
+    // Now, the "GitLab" folder should be visible. Find and click it.
+    const gitlabFolder = await screen.findByText('GitLab');
+    await userEvent.click(gitlabFolder);
+
+    // Now, the "GitLab Docs" bookmark should finally be visible.
+    const gitlabDocsBookmark = await screen.findByText('GitLab Docs');
+    expect(gitlabDocsBookmark).toBeInTheDocument();
   });
 });
