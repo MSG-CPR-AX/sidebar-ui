@@ -20,41 +20,48 @@ interface LeftNavProps {
 
 export const LeftNav = ({ activeItem, setActiveItem }: LeftNavProps) => {
   return (
-    <nav className="flex h-full w-16 flex-col items-center justify-between border-r border-divider bg-background p-2">
-        <div className="flex flex-col items-center space-y-2">
-            {navItems.map((item) => (
-                <button
-                key={item.name}
-                onClick={() => setActiveItem(item.name)}
-                className={`rounded-lg p-3 transition-colors ${
-                    activeItem === item.name
-                    ? 'bg-accent-blue text-white'
-                    : 'text-secondary hover:bg-surface hover:text-primary'
-                }`}
-                aria-label={item.name}
-                title={item.name}
-                >
-                <Icon name={item.icon} size={24} />
-                </button>
-            ))}
+    <nav className="flex h-full w-14 flex-col items-center justify-between border-r border-divider bg-surface p-1">
+      <div className="flex flex-col items-center space-y-2">
+        {/* Logo/Main Action */}
+        <div className="p-2.5">
+          <Icon name="Bookmark" size={24} className="text-primary" />
         </div>
-        <div className="flex flex-col items-center space-y-2">
-            {bottomNavItems.map((item) => (
-                <button
-                key={item.name}
-                onClick={() => setActiveItem(item.name)}
-                className={`rounded-lg p-3 transition-colors ${
-                    activeItem === item.name
-                    ? 'bg-accent-blue text-white'
-                    : 'text-secondary hover:bg-surface hover:text-primary'
-                }`}
-                aria-label={item.name}
-                title={item.name}
-                >
-                <Icon name={item.icon} size={24} />
-                </button>
-            ))}
-        </div>
+
+        {/* Navigation Items */}
+        {navItems.map((item) => (
+          <button
+            key={item.name}
+            onClick={() => setActiveItem(item.name)}
+            className={`border-l-2 p-2.5 transition-colors ${
+              activeItem === item.name
+                ? 'border-accent-blue text-accent-blue'
+                : 'border-transparent text-secondary hover:text-primary'
+            }`}
+            aria-label={item.name}
+            title={item.name}
+          >
+            <Icon name={item.icon} size={22} />
+          </button>
+        ))}
+      </div>
+      <div className="flex flex-col items-center space-y-2">
+        {/* Bottom Navigation Items */}
+        {bottomNavItems.map((item) => (
+          <button
+            key={item.name}
+            onClick={() => setActiveItem(item.name)}
+            className={`border-l-2 p-2.5 transition-colors ${
+              activeItem === item.name
+                ? 'border-accent-blue text-accent-blue'
+                : 'border-transparent text-secondary hover:text-primary'
+            }`}
+            aria-label={item.name}
+            title={item.name}
+          >
+            <Icon name={item.icon} size={22} />
+          </button>
+        ))}
+      </div>
     </nav>
   )
 }
