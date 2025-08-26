@@ -1,0 +1,25 @@
+{
+  "name": "bookmark_sidebar",
+  "version": "2.5.2",
+  "license": "MS-RSL",
+  "author": "Philipp Koenig",
+  "homepage": "https://extensions.redeviation.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kiuryy/Bookmark_Sidebar"
+  },
+  "scripts": {
+    "init": "npm install && npm install -g npm-check-updates && npm rebuild node-sass",
+    "update": "ncu -u --packageFile package.json && npm install",
+    "build:chrome": "build.sh --mode=build --target=chrome",
+    "build:firefox": "build.sh --mode=build --target=firefox",
+    "release": "build.sh --mode=release --target=chrome,firefox"
+  },
+  "devDependencies": {
+    "eslint": "^9.33.0",
+    "html-minifier-terser": "^7.2.0",
+    "sass": "^1.90.0",
+    "npm-check-updates": "^18.0.2",
+    "terser": "^5.43.1"
+  }
+}

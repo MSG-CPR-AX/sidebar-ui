@@ -1,0 +1,60 @@
+
+html[dir='rtl'] {
+
+  body[data-type^='newtab'] {
+
+    > section#wrapper > main {
+
+      div.intro {
+        padding-right: 100px;
+        padding-left: 20px;
+
+        &::before {
+          left: unset;
+          right: 0;
+          transform: scaleX(-1);
+        }
+      }
+
+      section.extensionRecommendations > a {
+        padding-left: 20px;
+        padding-right: 16px;
+      }
+
+      div.buttons {
+
+        > a.button {
+          padding-right: 38px;
+          padding-left: 15px;
+
+          + a.button {
+            margin-right: 10px;
+            margin-left: unset;
+          }
+
+          &[data-name='preview']::before {
+            right: 2px;
+            left: unset;
+          }
+
+          &[data-name='styling']::before {
+            right: 5px;
+            left: unset;
+            transform: scaleX(-1);
+          }
+        }
+      }
+
+      div.faviconOptions {
+
+        > aside {
+          justify-self: left;
+
+          @media (max-width: 1280px) {
+            justify-self: right;
+          }
+        }
+      }
+    }
+  }
+}

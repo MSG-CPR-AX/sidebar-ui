@@ -1,0 +1,153 @@
+html[dir='rtl'] {
+
+  menu.infoBar {
+    justify-content: flex-start;
+
+    > a {
+
+      &.save {
+        order: 1;
+      }
+
+      &.cancel {
+        order: 2;
+      }
+    }
+
+    > div.upload {
+
+      > a.remove {
+        float: left;
+      }
+
+      > div {
+
+        > span {
+          padding-right: 28px;
+          padding-left: 3px;
+
+          &::before {
+            transform: scaleX(-1);
+          }
+        }
+
+        > input[type='file'] {
+          left: unset;
+          right: -900%;
+        }
+      }
+
+      > span.premium {
+        float: left;
+        padding-right: 22px;
+        padding-left: 4px;
+
+        &::before {
+          transform: scaleX(-1);
+        }
+      }
+    }
+  }
+
+  div.editLinkTooltip {
+    text-align: right;
+
+    > button[type='submit'] {
+      float: left;
+
+      &[data-type="delete"] {
+        float: right;
+      }
+    }
+  }
+
+  body[data-pos='right'] {
+
+    menu.infoBar {
+      justify-content: flex-end;
+
+      > a {
+
+        &.save {
+          order: 2;
+        }
+
+        &.cancel {
+          order: 1;
+        }
+      }
+
+      > div.upload {
+
+        > a.remove {
+          float: right;
+        }
+
+        > span.premium {
+          float: right;
+        }
+      }
+    }
+  }
+
+  body.edit {
+
+    form#search {
+
+      > input[type='text'] {
+        padding-right: 30px;
+        padding-left: 125px;
+      }
+
+      > div[data-name='searchSuggest'] {
+
+        > div.checkbox {
+
+          + span {
+            margin-right: 5px;
+            margin-left: 20px;
+          }
+        }
+      }
+
+      > a.edit {
+        left: 20px;
+        right: unset;
+      }
+    }
+
+    div#gridLinks {
+
+      > div[data-type='gridsize'] {
+
+        > strong {
+          margin-left: 5px;
+          margin-right: 0;
+        }
+
+        > span.premium {
+          margin-left: 0;
+          margin-right: 14px;
+
+          &::after {
+            transform: none;
+            left: unset;
+            right: -16px;
+          }
+        }
+      }
+    }
+
+    select.edit {
+      box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    &.customBackground {
+
+      div#gridLinks > div[data-type='gridsize'] {
+        padding-right: 10px;
+        padding-left: 8px;
+      }
+    }
+  }
+}

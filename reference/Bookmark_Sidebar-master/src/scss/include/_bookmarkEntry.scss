@@ -1,0 +1,269 @@
+@mixin bookmarkEntry {
+  display: flex;
+  align-items: center;
+  font-size: $__bookmarksFontSize;
+  line-height: $__bookmarksLineHeight;
+  padding: 0 $__bookmarksHorizontalPadding;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+
+  &.hover:not(.separator) {
+    background: $__hoverColor;
+  }
+
+  &.dragHover {
+    background: $__hoverColor;
+  }
+
+  &.mark {
+    background: $__colorScheme;
+    color: $textColorInverted;
+  }
+
+  &.active {
+    font-weight: $__fontWeightMedium;
+  }
+
+  &.dir {
+    font-weight: $__fontWeightBold;
+  }
+
+  &.selected:not(.separator) {
+    background: $__hoverColor;
+  }
+
+  &.separator {
+    height: $__bookmarksLineHeight;
+    cursor: default;
+
+    > span.label {
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: $separatorColor;
+      }
+
+      &[data-name]::before {
+        content: attr(data-name);
+        position: relative;
+        background: $contentBackground;
+        margin: 0 calc(#{$__bookmarksHorizontalPadding} + #{$__directoriesIconSize});
+        box-shadow: 0 0 0 10px $contentBackground;
+        font-style: italic;
+        z-index: 2;
+      }
+    }
+  }
+
+  > span.removeMask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: $removedBackground;
+    padding: 0 $__bookmarksHorizontalPadding;
+    transform: translateX(100%);
+    transition: transform 0.3s;
+    z-index: 3;
+
+    > em {
+      font-style: italic;
+      font-size: 90%;
+      opacity: 0.8;
+    }
+
+    > span {
+      pointer-events: auto;
+      cursor: pointer;
+      float: right;
+    }
+  }
+
+  &.removed {
+    pointer-events: none;
+
+    > span.removeMask {
+      transform: translateX(0) !important;
+    }
+  }
+
+  > span.copied {
+    position: absolute;
+    top: -20px;
+    left: calc(#{$__bookmarksIconSize} + #{$__bookmarksHorizontalPadding} + 10px);
+    background: $colorSuccess;
+    color: $textColorInverted;
+    font-size: 80%;
+    font-weight: $__fontWeightBold;
+    line-height: normal;
+    padding: 3px 5px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate3d(0, 5px, 0);
+    transition: opacity 0.3s, transform 0.3s;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 0;
+      border: 5px solid transparent;
+      border-top-color: $colorSuccess;
+    }
+  }
+
+  &.copied {
+    background: rgba($colorSuccess, 0.2) !important;
+
+    > span.copied {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  > img, > span.icon {
+    position: relative;
+    display: inline-block;
+    width: $__bookmarksIconSize;
+    height: $__bookmarksIconSize;
+    margin: 0 $__bookmarksHorizontalPadding 0 0;
+    pointer-events: none;
+    flex-shrink: 0;
+  }
+
+  > div.checkbox {
+    margin: 0 $__bookmarksHorizontalPadding 0 0;
+    flex-shrink: 0;
+    display: none;
+  }
+
+  > img {
+    visibility: hidden;
+
+    &[src] {
+      visibility: visible;
+    }
+  }
+
+  &.dir {
+
+    > span.icon {
+      @include mask(#{'icon-' + $__bookmarksDirIcon}, $__bookmarksDirColor, $__directoriesIconSize);
+      width: $__directoriesIconSize;
+      height: $__directoriesIconSize;
+    }
+
+    &.has-arrow {
+      padding-left: 15px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 5px;
+        width: 0;
+        height: 0;
+        margin: auto;
+        border: 4px solid transparent;
+        border-left-color: $__textColor;
+        opacity: 0.6;
+        transform-origin: 25% 50%;
+        transition: transform 0.3s;
+      }
+
+      &.opened:not(.animated), &.animated:not(.opened) {
+
+        &::before {
+          transform: rotateZ(90deg);
+        }
+      }
+    }
+  }
+
+  &.link > span.icon {
+    @include mask(#{'icon-demo'}, transparent, $__bookmarksIconSize);
+
+    @each $color in $demoColors {
+      $i: index($demoColors, $color);
+      &[data-color='#{$i}']::before {
+        background-color: $color;
+      }
+    }
+  }
+
+  > span.label {
+    position: relative;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    pointer-events: none;
+
+    &::after {
+      content: "\200B"; // maintain height even with empty label
+    }
+
+    &[data-num]::after { // for appearance preview
+      content: " " attr(data-num);
+    }
+  }
+
+  > span.drag, > span.add {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: $__bookmarksLineHeight;
+    height: $__bookmarksLineHeight;
+    max-width: 24px;
+    max-height: 22px;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.05);
+    transition: background-color 0.5s, opacity 0.5s;
+    @extend %hidden;
+
+    &::before {
+      transition: inherit;
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.125);
+
+      &::before {
+        background-color: $reorderIconColorActive;
+      }
+    }
+  }
+
+  > span.drag {
+    display: none;
+    right: 15px;
+    cursor: grab;
+  }
+
+  > span.add {
+    right: 42px;
+  }
+
+  &:hover {
+
+    > span.drag, > span.add {
+      @extend %visible;
+    }
+  }
+}
+
+@import "../rtl/include/bookmarkEntry";
+@import "../dark/include/bookmarkEntry";

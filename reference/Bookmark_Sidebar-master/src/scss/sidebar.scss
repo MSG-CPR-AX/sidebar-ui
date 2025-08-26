@@ -1,0 +1,816 @@
+@import "include/vars";
+@import "include/mixins";
+@import "include/loading";
+@import "include/scrollBox";
+@import "include/contextmenu";
+@import "include/tooltip";
+@import "include/checkbox";
+@import "include/bookmarkEntry";
+//
+$textColor: $__textColor;
+@import "include/generals";
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  &.noAnimations {
+
+    *, *::before, *::after {
+      transition: none !important;
+    }
+  }
+}
+
+// Clipboard
+body > textarea {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  z-index: -1;
+}
+
+// Sidebar
+a.dragHelper {
+  @include bookmarkEntry;
+  position: absolute;
+  background: $contentBackground !important;
+  padding-right: 46px;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
+  cursor: grabbing;
+  transition: none;
+  z-index: 3;
+
+  > span.drag {
+    @include mask('icon-reorder', $reorderIconColorActive, 18px);
+    display: block;
+    transition: none;
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: grabbing;
+  }
+
+  > span.add {
+    display: none;
+  }
+
+  > span.selected {
+    position: absolute;
+    bottom: -8px;
+    left: -7px;
+    background: $__colorScheme;
+    color: $__foregroundColor;
+    font-weight: $__fontWeightMedium;
+    line-height: 100%;
+    padding: 3px 5px;
+    border-radius: 5px;
+  }
+
+  &.snap {
+    transition: 0.2s;
+    box-shadow: none;
+  }
+}
+
+//
+section#sidebar {
+  position: relative;
+  width: $__sidebarWidth;
+  background: $contentBackground;
+  box-shadow: 15px 0 35px rgba(0, 0, 0, 0.12);
+  height: 100%;
+  display: flex;
+  float: left;
+  speak: none;
+  flex-direction: column;
+  user-select: none;
+  transition: background 0.3s;
+  z-index: 2;
+
+  &.permanent {
+    box-shadow: none !important;
+    border-style: solid;
+    border-width: 0 1px 0 0;
+    border-color: rgba(0, 0, 0, 0.15);
+  }
+
+  &.sidepanel {
+    border: none;
+    width: 100%;
+  }
+
+  &[data-pos='right'] {
+    float: right;
+    box-shadow: -15px 0 35px rgba(0, 0, 0, 0.12);
+
+    &.permanent {
+      border-width: 0 0 0 1px;
+    }
+  }
+
+  > header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    width: 100%;
+    height: $__sidebarHeaderHeight;
+    padding: 0 12px;
+    background: $__colorScheme;
+    transition: background 0.3s;
+    box-shadow: 0 6px 12px -3px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    flex-shrink: 0;
+    z-index: 3;
+
+    > h1 {
+      color: $__foregroundColor;
+      font-weight: $__fontWeightMedium;
+      margin-right: auto;
+      font-size: 100%;
+      transition: transform 0.5s;
+
+      &.hidden {
+        display: none;
+      }
+
+      > strong {
+        font-weight: $__fontWeightNormal;
+        font-size: 150%;
+      }
+
+      > span {
+        opacity: 0.7;
+        font-size: 90%;
+        display: inline-block;
+        line-height: normal;
+        margin: 0 0 0 3px;
+
+        &.hidden {
+          display: none;
+        }
+      }
+    }
+
+    > a {
+      @include mask(null, $__foregroundColor, 22px);
+      position: relative;
+      display: block;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s, opacity 0.5s;
+
+      &:hover, &.active {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      &.menu {
+        margin-right: -2px;
+      }
+
+      &.cancel {
+        font-size: 0;
+        color: transparent;
+
+        &:not([data-type='compact']) {
+          position: relative;
+          display: inline-block;
+          width: auto;
+          height: auto;
+          padding: 4px 6px 3px;
+          margin: 0 5px 0 20px;
+          font-size: 90%;
+          color: $__foregroundColor;
+          font-weight: $__fontWeightBold;
+          text-transform: uppercase;
+          border-radius: 3px;
+          cursor: pointer;
+
+          &::before {
+            display: none;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -10px;
+            height: 100%;
+            width: 2px;
+            background: $__foregroundColor;
+            opacity: 0.4;
+          }
+        }
+      }
+    }
+
+    > div.searchBox {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      left: 12px;
+      width: calc(100% - 100px);
+      height: 30px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
+      transform: translate3d(20px, 0, 0);
+      transition: transform 0.3s, opacity 0.3s;
+      @extend %hidden;
+
+      > input[type='text'] {
+        vertical-align: top;
+        display: inline-block;
+        height: 100%;
+        width: calc(100% - 30px);
+        outline: none;
+        border: 0;
+        background: transparent;
+        color: $__foregroundColor;
+        padding: 0 5px 0 12px;
+
+        &::-webkit-input-placeholder {
+          color: $__foregroundColor;
+          opacity: 0.7;
+        }
+      }
+
+      > a.searchClose {
+        position: relative;
+        vertical-align: top;
+        display: inline-block;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+
+    &.searchVisible:not(.selectionMode) {
+
+      > h1 {
+        transform: translate3d(-200%, 0, 0);
+        pointer-events: none;
+        transition: transform 0.5s;
+      }
+
+      > a.search {
+        @extend %hidden;
+      }
+
+      > div.searchBox {
+        transform: translate3d(0, 0, 0);
+        transition: transform 0.5s 0.1s, opacity 0.5s 0.1s;
+        @extend %visible;
+      }
+    }
+  }
+
+  > span.drag {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 10px;
+    height: 100%;
+    cursor: ew-resize;
+    transition: background 0.5s;
+
+    &:hover, &.isDragged {
+      background: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  > a.lockPinned {
+    position: absolute;
+    top: $__sidebarHeaderHeight;
+    right: -22px;
+    display: block;
+    margin-top: 9px;
+    width: 18px;
+    height: 45px;
+    background: $contentBackground;
+    border-radius: 10px;
+    transition: transform 0.5s, opacity 0.5s;
+    transform: translate3d(-7px, 0, 0);
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    @extend %hidden;
+
+    > span {
+      @include mask('icon-lock', $__textColor, 16px);
+    }
+
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      border: 4px solid transparent;
+      opacity: 0.5;
+    }
+
+    &::before {
+      top: 0;
+      border-bottom-color: $__textColor;
+    }
+
+    &::after {
+      bottom: 0;
+      border-top-color: $__textColor;
+    }
+
+    &.active {
+      @extend %visible;
+      transform: translate3d(0, 0, 0) !important;
+    }
+
+    &.fixed > span::before {
+      @include maskImage('icon-unlock');
+    }
+  }
+
+  &[data-pos='right'] {
+
+    > span.drag {
+      right: unset;
+      left: -10px;
+    }
+
+    > a.lockPinned {
+      right: unset;
+      left: -22px;
+      transform: translate3d(7px, 0, 0);
+    }
+  }
+
+  > div.filter {
+    position: absolute;
+    display: flex;
+    align-content: flex-start;
+    top: $__sidebarHeaderHeight;
+    left: 11px;
+    width: calc(100% - 11px - #{$__scrollBarWidth});
+    background: $contentBackground2;
+    padding: 10px $__bookmarksHorizontalPadding 5px;
+    border-radius: 0 0 5px 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    z-index: 2;
+
+    &.hidden {
+      display: none;
+    }
+
+    > a[data-direction] {
+      @include mask('icon-arrow-up', $__textColor, 24px);
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      margin: 0 10px 5px 0;
+      padding-left: 18px;
+
+      &::before {
+        width: 14px;
+        height: 14px;
+        margin: 1px 0 0 0;
+        transition: transform 0.5s;
+      }
+
+      &[data-direction="DESC"]::before {
+        transform: rotateZ(180deg);
+      }
+    }
+
+    > ul {
+      float: right;
+      margin-bottom: 5px;
+
+      > li {
+        position: relative;
+
+        + li {
+          margin-top: 5px;
+        }
+
+        > div.checkbox {
+          position: absolute;
+          z-index: 2;
+          width: 16px;
+          height: 16px;
+          top: 0;
+          left: 0;
+
+          &::before {
+            -webkit-mask-size: 18px;
+          }
+
+          + a {
+            padding-left: 22px;
+            cursor: pointer;
+
+            &::before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+  }
+
+  > div.scrollBox {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    > p {
+      font-size: 120%;
+      padding: 30px 20px;
+      font-style: italic;
+      max-width: 350px;
+      margin: 0 auto;
+    }
+
+    &.scrolled ~ div.filter {
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    &.scrolled:not([data-direction='up']) ~ div.filter {
+      transform: translate3d(0, -100%, 0);
+      box-shadow: none;
+    }
+
+    > ul, > div.pinned > ul {
+      position: relative;
+      margin: 9px 0;
+      z-index: 1;
+
+      a {
+        @include bookmarkEntry;
+        position: relative;
+
+        + ul {
+          padding-left: $__bookmarksDirIndentation;
+          height: 0;
+          overflow: hidden;
+        }
+
+        &.opened {
+
+          + ul {
+            height: auto;
+          }
+        }
+
+        &.opened:not(.animated) {
+
+          + ul {
+            overflow: visible;
+          }
+        }
+      }
+
+      li {
+
+        &.hidden {
+
+          > a {
+            opacity: 0.3;
+            font-style: italic;
+
+            &:hover, &.active {
+              opacity: 0.5;
+            }
+          }
+        }
+
+        &.isDragged {
+          width: calc(100% - 5px);
+          border: 3px dashed rgba(0, 0, 0, 0.2);
+          pointer-events: none;
+
+          > a {
+            visibility: hidden;
+            line-height: calc(#{$__bookmarksLineHeight} - 6px);
+
+            > img {
+              visibility: hidden;
+            }
+          }
+        }
+
+        &.dragInitial {
+          display: none;
+        }
+
+        &.dragHover {
+          position: relative;
+
+          > a {
+            background-color: $__hoverColor;
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 3px;
+            left: 3px;
+            width: calc(100% - 6px);
+            height: calc(100% - 6px);
+            border: 3px dashed rgba(0, 0, 0, 0.2);
+            z-index: 2;
+          }
+        }
+      }
+
+      &.hideRoot {
+
+        > li {
+
+          > a {
+            display: none;
+          }
+
+          > ul {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+
+    > div.pinned {
+      position: relative;
+      background-color: $contentBackground;
+      margin: 0 0 9px 0;
+      padding-top: 9px;
+      z-index: 2;
+
+      &.hidden {
+        display: none;
+      }
+
+      &.fixed {
+        position: sticky;
+        top: 0;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        height: 1px;
+        margin: 7px $__bookmarksHorizontalPadding;
+        background: $separatorColor;
+      }
+
+      > ul {
+        margin: 0;
+      }
+    }
+
+    > a[data-name='add'] {
+      @include mask('icon-add', $__textColor, 20px);
+      position: relative;
+      display: block;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      border-radius: 50%;
+      margin: 0 calc(#{$__bookmarksHorizontalPadding} - 6px) 9px;
+      padding: 0 !important;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: $__hoverColor;
+      }
+    }
+  }
+
+  &.openedOnce {
+
+    > header {
+
+      > a {
+
+        &.search::before {
+          @include maskImage('icon-search');
+        }
+
+        &.removeSelected::before {
+          @include maskImage('icon-delete');
+        }
+
+        &.openSelected::before {
+          @include maskImage('icon-newtab');
+          -webkit-mask-size: 20px;
+        }
+
+        &.cancel[data-type='compact']::before {
+          @include maskImage('icon-close');
+        }
+
+        &.sort::before {
+          @include maskImage('icon-sort');
+        }
+
+        &.menu::before {
+          @include maskImage('icon-menu');
+        }
+      }
+
+      > div.searchBox > a.searchClose {
+        @include mask('icon-close', $__foregroundColor, 18px);
+      }
+    }
+
+    > div.scrollBox a {
+
+      > span.drag {
+        @include mask('icon-reorder', $reorderIconColor, 18px);
+      }
+
+      > span.add {
+        @include mask('icon-add', $reorderIconColor, 18px);
+      }
+    }
+  }
+
+  &:not([data-sort$='-flat']) {
+
+    > div#bookmarkBox {
+
+      a {
+
+        &:hover {
+          padding-right: 46px;
+        }
+
+        > span.drag {
+          display: block !important;
+        }
+      }
+
+      > ul > li > a {
+
+        > span.drag {
+          display: none !important;
+        }
+
+        > span.add {
+          right: 15px
+        }
+      }
+    }
+  }
+
+  &:not([data-sort='custom']) > div#bookmarkBox > div.pinned a {
+
+    &:hover {
+      padding-right: $__bookmarksHorizontalPadding;
+    }
+
+    > span.drag {
+      display: none !important;
+    }
+  }
+
+  &.selectionMode {
+
+    > div.scrollBox > ul {
+
+      a {
+
+        > img, > span.icon {
+          width: 12px;
+          height: 12px;
+          margin: 0;
+          position: absolute;
+          top: 50%;
+          left: calc(#{$__bookmarksHorizontalPadding} + 11px);
+        }
+
+        &.dir > span.icon {
+          display: none;
+        }
+
+        > div.checkbox {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &.loading {
+
+    > svg.loading {
+      position: absolute;
+      top: calc(50% - 18px);
+      left: calc(50% - 18px);
+    }
+
+    > div.scrollBox, > div.filter {
+      @extend %hidden;
+    }
+  }
+}
+
+//
+//
+//
+
+div#infoBox {
+  position: absolute;
+  bottom: 12px;
+  left: 15px;
+  width: calc(100% - 30px);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  padding: 12px 18px 10px;
+  border-radius: 50px;
+  background: $contentBackground;
+  text-align: center;
+  z-index: 4;
+  transform: translate3d(0, 20px, 0);
+  transition: transform 0.5s, opacity 0.5s;
+  @extend %hidden;
+
+  &.visible {
+    @extend %visible;
+    transform: translate3d(0, 0, 0);
+  }
+
+  > p {
+    margin: 0 0 10px 0;
+    font-size: 110%;
+    line-height: 140%;
+  }
+
+  > a {
+    position: relative;
+    display: inline-block;
+    padding: 5px 10px 4px;
+    margin: 0 3px;
+    color: $__colorScheme;
+    font-weight: $__fontWeightBold;
+    text-transform: uppercase;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 3px;
+      background: $__colorScheme;
+      transition: opacity 0.5s;
+      @extend %hidden;
+    }
+
+    &:hover::before {
+      opacity: 0.15;
+    }
+  }
+}
+
+body {
+
+  &.dragCancel {
+
+    * {
+      cursor: no-drop !important;
+    }
+
+    section#sidebar > div.scrollBox ul li.isDragged {
+      display: none;
+    }
+  }
+
+  &.isDragged {
+
+    section#sidebar:not([data-sort='custom']) > div.scrollBox ul li.isDragged {
+      display: none;
+    }
+  }
+}
+
+@import "rtl/sidebar";
+@import "highContrast/sidebar";
+@import "dark/sidebar";

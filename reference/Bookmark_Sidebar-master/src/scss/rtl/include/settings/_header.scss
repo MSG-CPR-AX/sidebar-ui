@@ -1,0 +1,105 @@
+
+html[dir='rtl'] {
+
+  body > header {
+
+    div#logo {
+      right: 24px;
+      left: unset;
+
+      &::before {
+        background: $gradientRtl;
+      }
+    }
+
+    > h1 {
+      padding-left: 30px;
+      padding-right: calc(#{$settingsMenuWidth} + 55px);
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 20px;
+
+      &::before {
+        -webkit-mask-position-x: calc(100% - #{$settingsMenuWidth} - 15px);
+      }
+
+      > span {
+
+        + span {
+          margin-right: 24px;
+          margin-left: 0;
+
+          &::before {
+            left: unset;
+            right: -14px;
+            border-right-color: $textColorLight;
+            border-left-color: transparent;
+          }
+        }
+      }
+
+      &::after {
+        left: unset;
+        right: calc(#{$settingsMenuWidth} - 10px);
+        transform: rotateZ(45deg);
+      }
+
+    }
+
+    &[data-type='newtab'] > h1::before, &[data-type='support'] > h1::before {
+      transform: scaleX(-1);
+      -webkit-mask-position-x: calc(#{$settingsMenuWidth} + 15px) !important;
+    }
+
+    > menu {
+      margin-left: 0;
+      margin-right: 40px;
+
+      > li {
+
+        > button {
+
+          &.restore {
+            margin-right: 10px;
+            margin-left: 0;
+          }
+
+          &.save {
+
+            &::before {
+              transform: scaleX(-1);
+            }
+
+            &.info {
+              padding-left: 12px;
+              padding-right: 34px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  body > div.dialog {
+
+    > a {
+      padding-right: 15px;
+      padding-left: 5px;
+
+      &::before {
+        right: 0;
+        left: unset;
+        transform: rotateZ(-45deg);
+      }
+    }
+
+    > span {
+      padding-right: 30px;
+      padding-left: 10px;
+
+      &::before {
+        right: 8px;
+        left: unset;
+      }
+    }
+  }
+}

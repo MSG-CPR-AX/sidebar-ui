@@ -1,0 +1,44 @@
+
+body.dark {
+
+  div#gridLinks {
+
+    > ul > li > a {
+
+      > div {
+        background: $darkContentBackground2;
+      }
+
+      &:hover {
+        background: rgba($darkContentBackground2, 0.5);
+
+        > div {
+          border-color: rgba(255, 255, 255, 0.03);
+          box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
+        }
+      }
+    }
+  }
+
+  &.customBackground div#gridLinks {
+
+    > ul > li {
+
+      > a {
+
+        &:hover {
+          background: rgba($darkContentBackground2, 0.4);
+        }
+
+        > div {
+          background: rgba($darkContentBackground, 0.7);
+        }
+
+        > span {
+          color: $__textColor;
+          text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+        }
+      }
+    }
+  }
+}

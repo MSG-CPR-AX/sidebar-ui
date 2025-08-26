@@ -1,0 +1,172 @@
+
+form#search {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 650px;
+  padding: 0 10px;
+  height: $newTabSearchHeight;
+
+  &.hidden {
+    display: none;
+  }
+
+  > input[type='text'] {
+    width: 100%;
+    height: 100%;
+    border-radius: calc($newTabSearchHeight / 2);
+    padding: 0 90px 0 30px;
+    border: none;
+    outline: none;
+    font-size: 125%;
+    background: $contentBackground;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+
+    &::-webkit-input-placeholder {
+      color: $__textColor;
+      opacity: 0.7;
+    }
+
+    &::-moz-placeholder {
+      color: $__textColor;
+      opacity: 0.7;
+    }
+  }
+
+  > button, > a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    outline: none;
+    border: none;
+    background: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background: $bodyBackground;
+    }
+  }
+
+  > button[type="submit"] {
+    @include mask('icon-search', $textColorLight, 26px);
+    right: 15px;
+    width: calc(#{$newTabSearchHeight} - 8px);
+    height: calc(#{$newTabSearchHeight} - 8px);
+  }
+
+  > a.speechSearch {
+    @include mask('icon-speech', $textColorLight, 20px);
+    right: 60px;
+    width: calc(#{$newTabSearchHeight} - 20px);
+    height: calc(#{$newTabSearchHeight} - 20px);
+  }
+
+  > ul.suggestions {
+    position: absolute;
+    width: calc(100% - 20px);
+    padding: #{$newTabSearchHeight + 1px} 20px 0;
+    pointer-events: none;
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+    z-index: 2;
+
+    > li {
+      @include mask(null, $textColorLight, 16px);
+      position: relative;
+      background: $contentBackground;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      pointer-events: auto;
+      font-size: 110%;
+      padding: 6px 10px 6px 30px;
+      transition: background 0.1s;
+
+      &::after { // workaround to handle semitransparent hoverColors with a mask behind the suggestion entry
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $contentBackground;
+        z-index: -1;
+      }
+
+      > span {
+        display: block;
+        margin: 3px 0 0 0;
+        font-size: 70%;
+        color: $textColorLight;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      &.active {
+        cursor: pointer;
+        background: $__hoverColor !important;
+      }
+
+      &::before {
+        width: 16px;
+        height: 16px;
+        left: 7px;
+        top: 7px;
+      }
+
+      &[data-type='url']::before {
+        @include maskImage('icon-web');
+      }
+
+      &[data-type='bookmark']::before {
+        @include maskImage('icon-bookmark');
+      }
+
+      &[data-type='history']::before {
+        @include maskImage('icon-history');
+        -webkit-mask-size: 18px;
+      }
+
+      &[data-type='word']::before {
+        @include maskImage('icon-search');
+      }
+    }
+  }
+
+  &.listening {
+
+    > input[type='text'] {
+      pointer-events: none;
+      font-style: italic;
+      color: transparent;
+      text-shadow: 0 0 0 gray;
+    }
+
+    > a.speechSearch {
+      @include mask('icon-close', $textColorLight, 20px);
+      right: 20px;
+    }
+
+    > ul.suggestions, > button[type="submit"] {
+      display: none;
+    }
+  }
+}
+
+body.customBackground form#search {
+
+  > input[type='text'] {
+    background: rgba($contentBackground, 0.8);
+  }
+
+  > button[type="submit"]::before, > a.speechSearch::before {
+    background-color: darken($textColorLight, 15%);
+  }
+}
+
+@import "../../rtl/include/newtab/search";
+@import "../../dark/include/newtab/search";

@@ -1,0 +1,156 @@
+
+html[dir='rtl'] {
+
+  a.dragHelper {
+    @include bookmarkEntryRtl;
+    padding-right: $__bookmarksHorizontalPadding;
+    padding-left: 46px;
+
+    > span.selected {
+      left: unset;
+      right: -7px;
+    }
+  }
+
+  //
+  section#sidebar {
+
+    > header {
+
+      > h1 {
+        margin-left: auto;
+        margin-right: unset;
+      }
+
+      > a {
+
+        &:not(.search)::before {
+          transform: scaleX(-1);
+        }
+
+        &.cancel:not([data-type='compact']) {
+          margin: 0 20px 0 5px;
+
+          &::after {
+            left: unset;
+            right: -10px;
+          }
+        }
+      }
+
+      > div.searchBox {
+        left: unset;
+        right: 12px;
+
+        > input[type='text'] {
+          padding-right: 12px;
+          padding-left: 5px;
+        }
+      }
+
+      &.searchVisible {
+
+        > h1 {
+          transform: translate3d(200%, 0, 0);
+        }
+      }
+    }
+
+    > a.lockPinned {
+
+      > span::before {
+        transform: scaleX(-1);
+      }
+    }
+
+    > div.filter {
+      left: unset;
+      right: 11px;
+
+      > a[data-direction] {
+        margin-left: 10px;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 18px;
+
+        &::before {
+          left: unset;
+          right: 0;
+        }
+      }
+
+      > ul {
+
+        > li {
+
+          > div.checkbox {
+            left: unset;
+            right: 0;
+
+            + a {
+              padding-left: unset;
+              padding-right: 22px;
+            }
+          }
+        }
+      }
+    }
+
+    > div.scrollBox {
+
+      > ul, > div.pinned > ul {
+
+        a {
+          @include bookmarkEntryRtl;
+
+          + ul {
+            padding-left: unset;
+            padding-right: $__bookmarksDirIndentation;
+          }
+        }
+
+        &.hideRoot {
+
+          > li {
+
+            > ul {
+              padding-left: 0;
+              padding-right: 0;
+            }
+          }
+        }
+      }
+    }
+
+    &:not([data-sort$='-flat']) {
+
+      > div#bookmarkBox {
+
+        a:hover {
+          padding-right: $__bookmarksHorizontalPadding;
+          padding-left: 46px;
+        }
+
+        > ul > li > a > span.add {
+          right: unset;
+          left: 15px
+        }
+      }
+    }
+
+    &:not([data-sort='custom']) > div#bookmarkBox > div.pinned a {
+
+      &:hover {
+        padding-left: $__bookmarksHorizontalPadding;
+      }
+    }
+
+    &.selectionMode {
+
+      > div.scrollBox > ul a > img, > span.icon {
+        left: unset;
+        right: calc(#{$__bookmarksHorizontalPadding} + 11px);
+      }
+    }
+  }
+}

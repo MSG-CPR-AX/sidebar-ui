@@ -1,0 +1,1547 @@
+{
+    "extension_name": {
+        "message": "Barra de Favoritos"
+    },
+    "extension_name_short": {
+        "message": "Favoritos"
+    },
+    "extension_desc": {
+        "message": "Adiciona uma barra lateral que pode ser exibida e ocultada, com todos os seus favoritos, \u00e0 borda da janela do seu navegador."
+    },
+    "extension_version": {
+        "message": "Vers\u00e3o"
+    },
+    "extension_last_update": {
+        "message": "\u00daltima atualiza\u00e7\u00e3o {1}"
+    },
+    "header_bookmarks": {
+        "message": "Favoritos"
+    },
+    "header_bookmarks_single": {
+        "message": "Favorito"
+    },
+    "header_selected_entries": {
+        "message": "selecionado"
+    },
+    "sidebar_dir_children": {
+        "message": "Elementos"
+    },
+    "sidebar_search_placeholder": {
+        "message": "Buscar favorito"
+    },
+    "sidebar_search_no_results": {
+        "message": "Nenhum favorito correspondente \u00e0 sua pesquisa"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "URL copiado"
+    },
+    "sidebar_deleted": {
+        "message": "Exclu\u00eddo"
+    },
+    "sidebar_undo_deletion": {
+        "message": "Desfazer"
+    },
+    "more_link": {
+        "message": "Saiba mais"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "Editar Favorito"
+    },
+    "contextmenu_edit_dir": {
+        "message": "Editar Pasta"
+    },
+    "contextmenu_edit_separator": {
+        "message": "Editar Separador"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "Apagar Favorito"
+    },
+    "contextmenu_delete_dir": {
+        "message": "Apagar Pasta"
+    },
+    "contextmenu_delete_separator": {
+        "message": "Apagar Separador"
+    },
+    "contextmenu_infos": {
+        "message": "Informa\u00e7\u00e3o"
+    },
+    "contextmenu_new_tab": {
+        "message": "Abrir em uma nova guia"
+    },
+    "contextmenu_current_tab": {
+        "message": "Abrir na guia atual"
+    },
+    "contextmenu_new_window": {
+        "message": "Abrir em uma nova janela"
+    },
+    "contextmenu_new_tab_incognito": {
+        "message": "Abrir em uma janela an\u00f4nima"
+    },
+    "contextmenu_copy": {
+        "message": "Copiar URL para a prancheta"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "Adicionar favorito"
+    },
+    "contextmenu_add": {
+        "message": "Adicionar item"
+    },
+    "contextmenu_check_bookmarks": {
+        "message": "Verificar favoritos"
+    },
+    "contextmenu_toggle_hidden": {
+        "message": "Mostrar itens ocultos"
+    },
+    "contextmenu_close_all_directories": {
+        "message": "Fechar todas as pastas"
+    },
+    "contextmenu_reload_sidebar": {
+        "message": "Recarregar a barra lateral"
+    },
+    "contextmenu_open_children": {
+        "message": "Abrir favoritos"
+    },
+    "contextmenu_hide_from_sidebar": {
+        "message": "Ocultar da barra lateral"
+    },
+    "contextmenu_show_in_sidebar": {
+        "message": "Mostrar na barra lateral"
+    },
+    "contextmenu_show_in_dir": {
+        "message": "Mostrar na pasta"
+    },
+    "contextmenu_pin": {
+        "message": "Fixar no topo"
+    },
+    "contextmenu_unpin": {
+        "message": "Desafixar do topo"
+    },
+    "contextmenu_bookmark_manager": {
+        "message": "Gerenciador de Favoritos"
+    },
+    "contextmenu_keyboard_shortcuts": {
+        "message": "Atalhos do teclado"
+    },
+    "contextmenu_select_entries": {
+        "message": "Selecione m\u00faltiplas entradas"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Selecione favorito"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Desmarque favorito"
+    },
+    "contextmenu_select_dir": {
+        "message": "Selecione pasta"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Desmarque pasta"
+    },
+    "sort_label_custom": {
+        "message": "Definido pelo usu\u00e1rio"
+    },
+    "sort_label_alphabetical": {
+        "message": "Ordem alfab\u00e9tica"
+    },
+    "sort_label_most_used": {
+        "message": "Mais usados"
+    },
+    "sort_label_recently_used": {
+        "message": "Usado recentemente"
+    },
+    "sort_label_recently_added": {
+        "message": "Adicionado recentemente"
+    },
+    "sort_label_url": {
+        "message": "URL"
+    },
+    "sort_view_as_tree": {
+        "message": "Mostrar pastas"
+    },
+    "sort_most_used_per_month": {
+        "message": "Por m\u00eas"
+    },
+    "overlay_bookmark_title": {
+        "message": "T\u00edtulo"
+    },
+    "overlay_bookmark_url": {
+        "message": "URL"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Informa\u00e7\u00e3o adicional"
+    },
+    "overlay_cancel": {
+        "message": "Cancelar"
+    },
+    "overlay_close": {
+        "message": "Fechar"
+    },
+    "overlay_save": {
+        "message": "Salvar"
+    },
+    "overlay_delete": {
+        "message": "Excluir"
+    },
+    "overlay_update": {
+        "message": "Atualizar"
+    },
+    "overlay_show_in_bookmark_manager": {
+        "message": "Mostrar no Gerenciador de Favoritos"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Voc\u00ea realmente deseja abrir todos {1} favoritos, incluindo favoritos em subpastas das pastas selecionadas?"
+    },
+    "overlay_open_children": {
+        "message": "Abrir todos"
+    },
+    "overlay_confirm_open_children": {
+        "message": "Voc\u00ea realmente quer abrir todos os {1} favoritos inferiores?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "Ocultar da barra lateral"
+    },
+    "overlay_hide_bookmark_confirm": {
+        "message": "Voc\u00ea realmente quer ocultar este favorito da barra lateral?"
+    },
+    "overlay_hide_dir_confirm": {
+        "message": "Voc\u00ea realmente quer ocultar esta pasta da barra lateral? Todos os favoritos inferiores ser\u00e3o ocultados tamb\u00e9m."
+    },
+    "overlay_delete_bookmark_confirm": {
+        "message": "Voc\u00ea realmente quer excluir este favorito?"
+    },
+    "overlay_delete_dir_confirm": {
+        "message": "Voc\u00ea realmente quer excluir esta pasta? Todos os favoritos inferiores ser\u00e3o apagados tamb\u00e9m."
+    },
+    "overlay_label_bookmark": {
+        "message": "Favorito"
+    },
+    "overlay_label_dir": {
+        "message": "Pasta"
+    },
+    "overlay_label_separator": {
+        "message": "Separador"
+    },
+    "overlay_add_position": {
+        "message": "Posi\u00e7\u00e3o"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Acrescentar ao in\u00edcio da pasta"
+    },
+    "overlay_add_position_append": {
+        "message": "Acrescentar ao fim da pasta"
+    },
+    "overlay_separator_title_desc": {
+        "message": "Voc\u00ea tem a op\u00e7\u00e3o de digitar um t\u00edtulo para o separador. Ele ser\u00e1 exibido na parte superior da linha separadora e pode ajud\u00e1-lo a organizar sua lista de favoritos."
+    },
+    "overlay_bookmark_views": {
+        "message": "Visualiza\u00e7\u00f5es"
+    },
+    "overlay_bookmark_views_single": {
+        "message": "Visualiza\u00e7\u00e3o"
+    },
+    "overlay_bookmark_views_since": {
+        "message": "Salvo desde"
+    },
+    "overlay_bookmark_views_per_month": {
+        "message": "por m\u00eas"
+    },
+    "overlay_bookmark_created_date": {
+        "message": "Criado em"
+    },
+    "overlay_dir_children": {
+        "message": "Elementos"
+    },
+    "overlay_dir_children_bookmarks": {
+        "message": "Favoritos"
+    },
+    "overlay_dir_children_dirs": {
+        "message": "Pastas"
+    },
+    "overlay_delete_selected": {
+        "message": "Delete entradas selecionadas"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Tem certeza de que deseja excluir as entradas selecionadas? Todos os favoritos de subpasta das pastas selecionadas tamb\u00e9m ser\u00e3o exclu\u00eddos."
+    },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Alterado"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Corrompido"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Duplicatas"
+    },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "Pastas vazias"
+    },
+    "overlay_check_bookmarks_loading": {
+        "message": "Verificando os URLs dos favoritos"
+    },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Atualiza\u00e7\u00e3o selecionada"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Remover selecionado"
+    },
+    "overlay_check_bookmarks_no_results": {
+        "message": "Todos os URLs dos favoritos est\u00e3o funcionando"
+    },
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "N\u00e3o h\u00e1 URLs de favoritos modificados"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "N\u00e3o h\u00e1 URLs de favoritos com problema"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "N\u00e3o h\u00e1 URLs de favoritos com duplicata"
+    },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "N\u00e3o h\u00e1 pastas sem favoritos"
+    },
+    "newtab_title": {
+        "message": "Nova guia"
+    },
+    "newtab_grid_links_top_pages": {
+        "message": "P\u00e1ginas mais visitadas"
+    },
+    "newtab_grid_links_recently_used": {
+        "message": "Favoritos usados recentemente"
+    },
+    "newtab_grid_links_most_used": {
+        "message": "Favoritos mais usados"
+    },
+    "newtab_grid_links_custom": {
+        "message": "Entradas definidas pelo usu\u00e1rio"
+    },
+    "newtab_grid_links_hidden": {
+        "message": "N\u00e3o exibir p\u00e1ginas"
+    },
+    "newtab_grid_links_appearance_thumbnail": {
+        "message": "Mostrar pr\u00e9via do site"
+    },
+    "newtab_grid_links_appearance_favicon": {
+        "message": "Mostrar \u00edcone do site"
+    },
+    "newtab_grid_links_grid_size": {
+        "message": "Tamanho da grade"
+    },
+    "newtab_search_placeholder": {
+        "message": "Pesquise no {1} ou digite um URL"
+    },
+    "newtab_search_field_show": {
+        "message": "Exibir campo de busca"
+    },
+    "newtab_search_field_hide": {
+        "message": "Ocultar campo de pesquisa"
+    },
+    "newtab_search_suggest_queries": {
+        "message": "Sugerir consultas"
+    },
+    "newtab_search_suggest_bookmarks": {
+        "message": "Sugerir favoritos"
+    },
+    "newtab_search_suggest_history": {
+        "message": "Sugerir p\u00e1ginas visitadas"
+    },
+    "newtab_speech_search_listening": {
+        "message": "Fale agora"
+    },
+    "newtab_speech_search_error": {
+        "message": "Para habilitar a pesquisa por voz, voc\u00ea precisa permitir o acesso ao microfone."
+    },
+    "newtab_search_engine_headline": {
+        "message": "Ferramenta de pesquisa"
+    },
+    "newtab_search_engine_custom": {
+        "message": "Definido pelo usu\u00e1rio"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "T\u00edtulo"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "Endere\u00e7o da p\u00e1gina inicial"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "Endere\u00e7o da p\u00e1gina de resultados"
+    },
+    "newtab_upload_background": {
+        "message": "Carregar a imagem de fundo"
+    },
+    "newtab_sidebar_auto_open": {
+        "message": "Expandir a barra lateral quando a p\u00e1gina carregar"
+    },
+    "newtab_fallback_headline_general": {
+        "message": "Algo bloqueou a barra lateral"
+    },
+    "newtab_fallback_headline_webstore": {
+        "message": "A barra lateral n\u00e3o pode ser usada na {browserName} Webstore"
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "A barra lateral n\u00e3o pode ser usada nas p\u00e1ginas das extens\u00f5es"
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "A barra lateral n\u00e3o pode ser usada na p\u00e1gina padr\u00e3o da nova guia"
+    },
+    "newtab_fallback_headline_system": {
+        "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas do sistema do {browserName}"
+    },
+    "newtab_fallback_headline_url_filter": {
+        "message": "Uma de suas regras de URL impediu a abertura da barra lateral"
+    },
+    "newtab_fallback_desc": {
+        "message": "Abrimos uma nova guia com a barra lateral para voc\u00ea."
+    },
+    "status_service_unavailable_headline": {
+        "message": "Servi\u00e7o indispon\u00edvel"
+    },
+    "status_feedback_unavailable_desc": {
+        "message": "O servi\u00e7o de coment\u00e1rios n\u00e3o est\u00e1 dispon\u00edvel no momento. Se quiser enviar coment\u00e1rios, por favor envie-me um e-mail."
+    },
+    "status_translation_unavailable_desc": {
+        "message": "O servi\u00e7o de tradu\u00e7\u00e3o n\u00e3o est\u00e1 dispon\u00edvel no momento. Por favor, tente mais tarde."
+    },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Tab"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Shift"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "Enter"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "Ctrl"
+    },
+    "keyboard_shortcuts_key_cmd": {
+        "message": "Command"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "Delete"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "Esc"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Passa para o item seguinte ou anterior na barra lateral"
+    },
+    "keyboard_shortcuts_enter_desc": {
+        "message": "Clica no atual item selecionado"
+    },
+    "keyboard_shortcuts_shift_enter_desc": {
+        "message": "Abre o menu de contexto do atual item selecionado"
+    },
+    "keyboard_shortcuts_ctrl_c_desc": {
+        "message": "Copia o URL do atual item selecionado"
+    },
+    "keyboard_shortcuts_del_desc": {
+        "message": "Exclui o atual item selecionado"
+    },
+    "keyboard_shortcuts_esc_desc": {
+        "message": "Fecha a barra lateral, a sobreposi\u00e7\u00e3o aberta ou o menu de contexto"
+    },
+    "contribute_intro": {
+        "message": "Para aperfei\u00e7oar a extens\u00e3o, eu gostaria de saber mais sobre como os usu\u00e1rios est\u00e3o usando a barra lateral e que configura\u00e7\u00f5es usam."
+    },
+    "contribute_notice": {
+        "message": "Voc\u00ea pode me ajudar compartilhando sua configura\u00e7\u00e3o"
+    },
+    "contribute_outro": {
+        "message": "Se voc\u00ea tiver questionamentos ou preocupa\u00e7\u00f5es sobre o compartilhamento de informa\u00e7\u00f5es, por favor, envie-me uma mensagem com coment\u00e1rios."
+    },
+    "contribute_share_config_label": {
+        "message": "Compartilhar configura\u00e7\u00e3o"
+    },
+    "contribute_share_config_desc": {
+        "message": "Voc\u00ea compartilha sua configura\u00e7\u00e3o anonimamente, o que me ajuda a identificar configura\u00e7\u00f5es populares e descobrir o que melhorar ou mudar em vers\u00f5es futuras."
+    },
+    "contribute_share_activity_label": {
+        "message": "Compartilhar atividade"
+    },
+    "contribute_share_activity_desc1": {
+        "message": "Voc\u00ea pode compartilhar sua atividade dentro da barra lateral anonimamente, o que me ajuda a saber como os usu\u00e1rios est\u00e3o usando a barra lateral de forma geral. Informa\u00e7\u00f5es sobre seus favoritos ou seus sites visitados [b]n\u00e3o ser\u00e3o[\/b] coletadas."
+    },
+    "contribute_share_activity_desc2": {
+        "message": "Esta informa\u00e7\u00e3o \u00e9 muito \u00fatil para identificar problemas na usabilidade ou caracter\u00edsticas que, por exemplo, n\u00e3o s\u00e3o usadas frequentemente."
+    },
+    "contribute_share_activity_examples_intro": {
+        "message": "Os dados compartilhados s\u00e3o, por exemplo:"
+    },
+    "contribute_share_activity_example_1": {
+        "message": "Quantos favoritos os usu\u00e1rios t\u00eam em m\u00e9dia?"
+    },
+    "contribute_share_activity_example_2": {
+        "message": "Em qual plataforma os usu\u00e1rios est\u00e3o (Windows, Mac, Linux,...)?"
+    },
+    "contribute_share_activity_example_3": {
+        "message": "Os usu\u00e1rios est\u00e3o usando a pesquisa?"
+    },
+    "contribute_share_activity_example_4": {
+        "message": "Os usu\u00e1rios mudam a classifica\u00e7\u00e3o dos favoritos?"
+    },
+    "contribute_share_activity_example_5": {
+        "message": "Com que frequ\u00eancia os usu\u00e1rios reorganizam ou editam as entradas?"
+    },
+    "onboarding_title": {
+        "message": "Configura\u00e7\u00e3o"
+    },
+    "onboarding_headline": {
+        "message": "Obrigado por instalar esta extens\u00e3o."
+    },
+    "onboarding_intro_desc": {
+        "message": "Existem v\u00e1rias maneiras de abrir sua barra lateral."
+    },
+    "onboarding_intro_sidebar_overlay_desc": {
+        "message": "Abrir em cima de sites"
+    },
+    "onboarding_intro_sidebar_sidepanel_desc": {
+        "message": "Abra no painel lateral ao lado do conte\u00fado principal das p\u00e1ginas da web"
+    },
+    "onboarding_sidebar_overlay_disable": {
+        "message": "N\u00e3o quero usar esta barra lateral sobreposta"
+    },
+    "onboarding_setup_start": {
+        "message": "Configurar agora"
+    },
+    "onboarding_setup_complete": {
+        "message": "Configura\u00e7\u00e3o conclu\u00edda"
+    },
+    "onboarding_sidebar_position_desc": {
+        "message": "Em que posi\u00e7\u00e3o voc\u00ea quer a sua barra lateral?"
+    },
+    "onboarding_sidebar_open_action_desc": {
+        "message": "Como voc\u00ea quer abrir a sua barra lateral?"
+    },
+    "onboarding_sidebar_surface_desc": {
+        "message": "Que estilo voc\u00ea prefere?"
+    },
+    "onboarding_sidebar_surface_light": {
+        "message": "Claro"
+    },
+    "onboarding_sidebar_surface_dark": {
+        "message": "Escuro"
+    },
+    "onboarding_handson_desc": {
+        "message": "Agora pode experimentar voc\u00ea mesmo."
+    },
+    "onboarding_handson_mouse_desc_1": {
+        "message": "Mova o cursor para o lado {1} da janela."
+    },
+    "onboarding_handson_mouse_desc_2": {
+        "message": "Depois clique com o bot\u00e3o {1} do mouse para abrir a barra lateral."
+    },
+    "onboarding_handson_icon_desc": {
+        "message": "Clique no \u00edcone da extens\u00e3o para abrir a barra lateral."
+    },
+    "onboarding_handson_sidepanel_desc": {
+        "message": "Clique no \u00edcone do painel lateral na parte superior do navegador e escolha a visualiza\u00e7\u00e3o da barra lateral de favoritos."
+    },
+    "onboarding_left": {
+        "message": "esquerdo"
+    },
+    "onboarding_right": {
+        "message": "direito"
+    },
+    "onboarding_handson_done": {
+        "message": "Terminei"
+    },
+    "onboarding_finish_desc": {
+        "message": "Divirta-se com sua barra lateral."
+    },
+    "onboarding_goto_settings": {
+        "message": "Mais configura\u00e7\u00f5es"
+    },
+    "onboarding_goto_appearance": {
+        "message": "Configurar apar\u00eancia"
+    },
+    "settings_title": {
+        "message": "Configura\u00e7\u00f5es"
+    },
+    "settings_menu_dashboard": {
+        "message": "Vis\u00e3o geral"
+    },
+    "settings_menu_sidebar": {
+        "message": "Barra Lateral"
+    },
+    "settings_menu_sidebar_general": {
+        "message": "Geral"
+    },
+    "settings_menu_sidebar_overlay": {
+        "message": "Sobreposi\u00e7\u00e3o"
+    },
+    "settings_menu_sidebar_sidepanel": {
+        "message": "Painel Lateral"
+    },
+    "settings_menu_sidebar_tooltip": {
+        "message": "Dicas de contexto"
+    },
+    "settings_menu_appearance": {
+        "message": "Apar\u00eancia"
+    },
+    "settings_menu_appearance_general": {
+        "message": "Geral"
+    },
+    "settings_menu_appearance_sidebar": {
+        "message": "Barra Lateral"
+    },
+    "settings_menu_appearance_indicator": {
+        "message": "Indicador"
+    },
+    "settings_menu_appearance_icon": {
+        "message": "\u00cdcone"
+    },
+    "settings_menu_appearance_dialog": {
+        "message": "Di\u00e1logo"
+    },
+    "settings_menu_newtab": {
+        "message": "Nova guia"
+    },
+    "settings_menu_language": {
+        "message": "Idioma"
+    },
+    "settings_menu_language_general": {
+        "message": "Geral"
+    },
+    "settings_menu_language_translate": {
+        "message": "Tradu\u00e7\u00e3o"
+    },
+    "settings_menu_support": {
+        "message": "Suporte"
+    },
+    "settings_menu_infos": {
+        "message": "Informa\u00e7\u00e3o"
+    },
+    "settings_menu_infos_aboutme": {
+        "message": "Sobre mim"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Permiss\u00f5es"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Privacidade"
+    },
+    "settings_menu_infos_contact": {
+        "message": "Contato"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Registro de altera\u00e7\u00f5es"
+    },
+    "settings_menu_premium": {
+        "message": "Exclusivo"
+    },
+    "settings_menu_export": {
+        "message": "Importar\/Exportar"
+    },
+    "settings_menu_expert": {
+        "message": "Configura\u00e7\u00f5es de especialistas"
+    },
+    "settings_save": {
+        "message": "Salvar altera\u00e7\u00f5es"
+    },
+    "settings_saved_message": {
+        "message": "Altera\u00e7\u00f5es salvas com sucesso"
+    },
+    "settings_restore": {
+        "message": "Restaurar padr\u00e3o"
+    },
+    "settings_restore_confirm": {
+        "message": "Voc\u00ea quer mesmo restaurar a configura\u00e7\u00e3o padr\u00e3o?"
+    },
+    "settings_restored_message": {
+        "message": "Configura\u00e7\u00e3o restaurada com sucesso"
+    },
+    "settings_advanced": {
+        "message": "Configura\u00e7\u00f5es avan\u00e7adas"
+    },
+    "settings_not_synced": {
+        "message": "N\u00e3o ser\u00e1 sincronizado com seus dispositivos."
+    },
+    "settings_premium_activated": {
+        "message": "Conte\u00fado exclusivo ativado com sucesso"
+    },
+    "settings_premium_invalid_key": {
+        "message": "N\u00e3o foi poss\u00edvel concluir a ativa\u00e7\u00e3o. Por favor, entre com uma licen\u00e7a v\u00e1lida."
+    },
+    "settings_search_placeholder": {
+        "message": "Procurar configura\u00e7\u00e3o"
+    },
+    "settings_expert_settings_desc": {
+        "message": "Com as configura\u00e7\u00f5es avan\u00e7adas, voc\u00ea pode alterar todos os sinalizadores de configura\u00e7\u00e3o da extens\u00e3o, mesmo aqueles que voc\u00ea n\u00e3o pode alterar usando as caixas de sele\u00e7\u00e3o ou controles deslizantes regulares da p\u00e1gina de configura\u00e7\u00f5es."
+    },
+    "settings_expert_settings_notice": {
+        "message": "Por favor, apenas altere os valores daqui se souber o que est\u00e1 fazendo. Configura\u00e7\u00f5es incorretas podem causar um comportamento inesperado da extens\u00e3o. Se algo quebrar, voc\u00ea pode reverter para a configura\u00e7\u00e3o padr\u00e3o."
+    },
+    "settings_expert_save_error": {
+        "message": "N\u00e3o foi poss\u00edvel salvar as configura\u00e7\u00f5es. Por favor, corrija suas entradas."
+    },
+    "settings_dashboard_sidebar_options": {
+        "message": "Configure o comportamento da sua barra lateral"
+    },
+    "settings_dashboard_sidebar_options_desc": {
+        "message": "Existem v\u00e1rias op\u00e7\u00f5es que voc\u00ea pode alterar para controlar a extens\u00e3o. Por exemplo, voc\u00ea pode alterar como a barra lateral deve deslizar ou como seus favoritos devem ser abertos. Se voc\u00ea n\u00e3o quiser que a barra lateral seja carregada em todas as p\u00e1ginas, voc\u00ea pode configurar isso tamb\u00e9m, usando as regras apropriadas."
+    },
+    "settings_dashboard_appearance_options": {
+        "message": "Mude a apar\u00eancia da sua barra lateral"
+    },
+    "settings_dashboard_appearance_options_desc": {
+        "message": "Voc\u00ea pode alterar a apar\u00eancia da barra lateral inteiramente para atender \u00e0s suas necessidades. Existem v\u00e1rias op\u00e7\u00f5es para alterar o tamanho da fonte, espa\u00e7amento entre linhas, cores, \u00edcones e muito mais. Voc\u00ea tamb\u00e9m pode escolher designs predefinidos e op\u00e7\u00f5es predefinidas para fazer com que a barra lateral tenha a apar\u00eancia desejada."
+    },
+    "settings_tips_tricks_facts": {
+        "message": "Voc\u00ea sabia?"
+    },
+    "settings_tips_tricks_next": {
+        "message": "Pr\u00f3xima dica"
+    },
+    "settings_tips_tricks_quick_search": {
+        "message": "Pesquisa r\u00e1pida"
+    },
+    "settings_tips_tricks_quick_search_desc": {
+        "message": "Se voc\u00ea abrir a barra lateral, poder\u00e1 pesquisar por favoritos apenas come\u00e7ando a digitar. N\u00e3o h\u00e1 necessidade de clicar primeiro no \u00edcone de pesquisa no cabe\u00e7alho da barra lateral."
+    },
+    "settings_tips_tricks_activation_area": {
+        "message": "\u00c1rea de ativa\u00e7\u00e3o"
+    },
+    "settings_tips_tricks_activation_area_desc": {
+        "message": "Por padr\u00e3o, toda a borda da janela do navegador pode ser passada para abrir a barra lateral. Voc\u00ea pode diminuir a \u00e1rea de ativa\u00e7\u00e3o permitindo que a barra lateral abra apenas em uma parte da altura do navegador. Por exemplo, voc\u00ea pode alterar a barra lateral para que apare\u00e7a apenas quando voc\u00ea clica na \u00e1rea de ativa\u00e7\u00e3o no canto inferior esquerdo da janela do navegador. Isso pode ser \u00fatil para evitar que a barra lateral apare\u00e7a acidentalmente ao clicar em links do site."
+    },
+    "settings_tips_tricks_quick_bookmarking": {
+        "message": "Marca\u00e7\u00e3o r\u00e1pida de favoritos"
+    },
+    "settings_tips_tricks_quick_bookmarking_desc": {
+        "message": "Voc\u00ea pode arrastar qualquer URL diretamente para a barra lateral e solt\u00e1-lo na posi\u00e7\u00e3o desejada. Voc\u00ea pode at\u00e9 marcar e arrastar o URL atual de uma guia do navegador dessa forma. Voc\u00ea tamb\u00e9m pode arrastar o s\u00edmbolo {1} \u00e0 esquerda da barra de endere\u00e7o na barra lateral para marcar a p\u00e1gina atual sem marcar toda a barra de endere\u00e7o primeiro."
+    },
+    "settings_tips_tricks_separators": {
+        "message": "Separadores"
+    },
+    "settings_tips_tricks_separators_desc": {
+        "message": "Uma entrada de marcador com o URL {1} e um t\u00edtulo {2} ou {3} ser\u00e1 exibida como separador na barra lateral. Voc\u00ea pode adicionar separadores clicando com o bot\u00e3o direito em qualquer pasta na barra lateral e, a seguir, clicando no bot\u00e3o {4}."
+    },
+    "settings_tips_tricks_quick_url_copy": {
+        "message": "C\u00f3pia r\u00e1pida de URL"
+    },
+    "settings_tips_tricks_quick_url_copy_desc": {
+        "message": "Para copiar o URL de um favorito da barra lateral para a \u00e1rea de transfer\u00eancia, voc\u00ea pode pressionar {1} ao passar o mouse sobre uma entrada."
+    },
+    "settings_tips_tricks_open_all_bookmarks": {
+        "message": "Abrir todos os favoritos"
+    },
+    "settings_tips_tricks_open_all_bookmarks_desc": {
+        "message": "Para abrir todos os favoritos em uma pasta, voc\u00ea pode clicar com o bot\u00e3o do meio na pasta. Como alternativa, voc\u00ea pode pressionar {1} enquanto clica em uma pasta com o bot\u00e3o esquerdo do mouse."
+    },
+    "settings_tips_tricks_hide_entries": {
+        "message": "Ocultar entradas"
+    },
+    "settings_tips_tricks_hide_entries_desc": {
+        "message": "Voc\u00ea pode ocultar favoritos individuais ou at\u00e9 pastas da barra lateral. Voc\u00ea pode clicar com o bot\u00e3o direito do mouse em qualquer entrada da barra lateral e clicar no bot\u00e3o {1} no menu de contexto. Para exibir as entradas ocultas novamente, voc\u00ea pode clicar no \u00edcone do menu no cabe\u00e7alho da barra lateral e habilitar a caixa de sele\u00e7\u00e3o correspondente. Nome da vari\u00e1vel: dicas"
+    },
+    "settings_tips_tricks_expand_all_subfolders": {
+        "message": "Expanda todas as subpastas"
+    },
+    "settings_tips_tricks_expand_all_subfolders_desc": {
+        "message": "Para abrir rapidamente uma pasta com todas as suas subpastas abertas, voc\u00ea tamb\u00e9m pode clicar duas vezes em uma pasta na barra lateral."
+    },
+    "settings_tips_tricks_keyboard_shortcuts": {
+        "message": "Atalhos do teclado"
+    },
+    "settings_tips_tricks_keyboard_shortcuts_desc": {
+        "message": "A barra lateral pode ser controlada usando atalhos de teclado. Voc\u00ea pode ver uma lista de atalhos clicando no \u00edcone do menu no cabe\u00e7alho da barra lateral e, em seguida, clicando no bot\u00e3o {1}."
+    },
+    "settings_tips_tricks_synchronization": {
+        "message": "Sincroniza\u00e7\u00e3o"
+    },
+    "settings_tips_tricks_synchronization_desc": {
+        "message": "Todas as suas configura\u00e7\u00f5es da barra lateral ser\u00e3o sincronizadas entre os seus dispositivos, se voc\u00ea habilitar as op\u00e7\u00f5es de sincroniza\u00e7\u00e3o do seu navegador nas configura\u00e7\u00f5es. Mesmo sem Premium."
+    },
+    "settings_tips_tricks_synchronization_action": {
+        "message": "Procure suas configura\u00e7\u00f5es de sincroniza\u00e7\u00e3o"
+    },
+    "settings_tips_tricks_i18n_desc": {
+        "message": "A extens\u00e3o est\u00e1 dispon\u00edvel em {1} diferentes idiomas. As tradu\u00e7\u00f5es s\u00e3o feitas pela comunidade e todos podem ajudar a contribuir, traduzindo os textos da extens\u00e3o em outras l\u00ednguas. As tradu\u00e7\u00f5es ser\u00e3o aprovadas e adicionadas \u00e0 extens\u00e3o na pr\u00f3xima atualiza\u00e7\u00e3o."
+    },
+    "settings_tips_tricks_about_desc": {
+        "message": "Esta extens\u00e3o \u00e9 um projeto de um homem, que come\u00e7ou como um projeto de hobby para uso pessoal."
+    },
+    "settings_tips_tricks_version_desc": {
+        "message": "A primeira vers\u00e3o desta extens\u00e3o foi lan\u00e7ada em novembro de 2016."
+    },
+    "settings_tips_tricks_right_click": {
+        "message": "Clique com o bot\u00e3o direito"
+    },
+    "settings_tips_tricks_right_click_desc": {
+        "message": "Voc\u00ea pode clicar com o bot\u00e3o direito em qualquer favorito ou pasta na barra lateral para revelar op\u00e7\u00f5es adicionais. Por exemplo, voc\u00ea pode editar os favoritos existentes ou fixar entradas na parte superior da barra lateral. Quando voc\u00ea clica com o bot\u00e3o direito em uma pasta, pode iniciar uma verifica\u00e7\u00e3o de favoritos para identificar URLs de favoritos quebrados ou atualizados."
+    },
+    "settings_tips_tricks_share_data": {
+        "message": "Compartilhar informa\u00e7\u00f5es"
+    },
+    "settings_tips_tricks_share_data_desc": {
+        "message": "Voc\u00ea pode compartilhar anonimamente suas configura\u00e7\u00f5es assim podendo ajudar a identificar configura\u00e7\u00f5es populares e na identifica\u00e7\u00e3o sobre mudan\u00e7as e melhoramentos futuros. Essa extens\u00e3o n\u00e3o coleta nenhum dado pessoal ou l\u00ea seus favoritos. Sem uma permiss\u00e3o expressa, essa extens\u00e3o tamb\u00e9m n\u00e3o compartilha nenhuma configura\u00e7\u00e3o."
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "Selecione m\u00faltiplas entradas"
+    },
+    "settings_tips_tricks_multiselect_desc": {
+        "message": "Voc\u00ea pode selecionar m\u00faltiplos favoritos ou pastas na barra lateral para abrir, deletar, al\u00e9m de mover segurando e arrastando."
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "Nova guia"
+    },
+    "settings_tips_tricks_newtab_desc": {
+        "message": "Voc\u00ea pode configurar a apar\u00eancia da nova p\u00e1gina de abas diretamente na p\u00e1gina, clicando no bot\u00e3o {1} no canto inferior. Voc\u00ea pode ent\u00e3o alterar os elementos da grade, o mecanismo de busca, a imagem de fundo ou os links na parte superior da p\u00e1gina."
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "Privacidade"
+    },
+    "settings_tips_tricks_privacy_desc": {
+        "message": "Os Favoritos mostrados em sua barra lateral s\u00e3o sincronizados e gerenciados por {browserName}. A extens\u00e3o n\u00e3o armazena ou analisa esses favoritos, somente mostra aquelas escolhidas no navegador em sua barra lateral."
+    },
+    "settings_tips_tricks_sidepanel": {
+        "message": "Painel lateral do navegador"
+    },
+    "settings_tips_tricks_sidepanel_desc": {
+        "message": "Voc\u00ea pode ter sua barra lateral de favoritos permanentemente aberta enquanto estiver navegando. H\u00e1 um painel lateral fornecido pelo seu navegador. Clique no \u00edcone do painel lateral na parte superior do navegador e escolha a visualiza\u00e7\u00e3o da barra lateral de favoritos."
+    },
+    "settings_open_action": {
+        "message": "Abrir barra lateral"
+    },
+    "settings_open_action_desc": {
+        "message": "Abrir a barra lateral clicando com o bot\u00e3o esquerdo ou direito do mouse ou posicionando o ponteiro do mouse sobre a borda da janela do navegador. Voc\u00ea tamb\u00e9m tem a op\u00e7\u00e3o de abrir apenas se clicar no \u00edcone da extens\u00e3o no menu do {browserName}."
+    },
+    "settings_open_action_leftclick": {
+        "message": "Clicar com o bot\u00e3o esquerdo"
+    },
+    "settings_open_action_rightclick": {
+        "message": "Clicar com o bot\u00e3o direito"
+    },
+    "settings_open_action_mouseover": {
+        "message": "Posicionar o ponteiro do mouse sobre uma \u00e1rea"
+    },
+    "settings_open_action_icon": {
+        "message": "Clique no \u00edcone"
+    },
+    "settings_toggle_area": {
+        "message": "Configurar a \u00e1rea"
+    },
+    "settings_toggle_area_desc": {
+        "message": "Por padr\u00e3o, a barra lateral pode ser aberta posicionando-se o ponteiro do mouse sobre a borda inteira da janela do navegador. Voc\u00ea pode alterar isso e configurar o local exato por onde deseja abrir a barra lateral."
+    },
+    "settings_toggle_area_width": {
+        "message": "Largura"
+    },
+    "settings_toggle_area_width_windowed": {
+        "message": "Largura (em janela)"
+    },
+    "settings_toggle_area_height": {
+        "message": "Altura"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "Voc\u00ea pode reduzir a altura da \u00e1rea, de forma que a barra lateral seja aberta somente quando voc\u00ea mover o ponteiro do mouse para dentro deste local da borda da janela do navegador."
+    },
+    "settings_toggle_area_drag_desc": {
+        "message": "Arraste para mover"
+    },
+    "settings_trigger_area_width": {
+        "message": "Largura para ativar"
+    },
+    "settings_trigger_area_width_desc": {
+        "message": "A largura da \u00e1rea na borda da tela onde a a\u00e7\u00e3o do mouse configurada aciona a exibi\u00e7\u00e3o da barra lateral."
+    },
+    "settings_trigger_area_width_windowed": {
+        "message": "Largura de ativa\u00e7\u00e3o no modo janela"
+    },
+    "settings_trigger_area_width_windowed_desc": {
+        "message": "A largura da \u00e1rea na borda da tela onde a a\u00e7\u00e3o do mouse configurada aciona a exibi\u00e7\u00e3o da barra lateral, quando o navegador n\u00e3o est\u00e1 em tela cheia ou est\u00e1 com largura reduzida (modo janela)."
+    },
+    "settings_trigger_area_height": {
+        "message": "Altura para ativar"
+    },
+    "settings_trigger_area_height_desc": {
+        "message": "A altura da \u00e1rea na borda da tela onde a a\u00e7\u00e3o do mouse configurada aciona a exibi\u00e7\u00e3o da barra lateral. Reduzir essa altura pode ajudar a evitar a ativa\u00e7\u00e3o acidental da barra lateral durante a navega\u00e7\u00e3o normal no site."
+    },
+    "settings_trigger_area_indicator_desc": {
+        "message": "Se o seu mouse entrar na \u00e1rea configurada da borda da tela, uma barra indicadora aparecer\u00e1. Voc\u00ea pode personalizar sua apar\u00eancia abaixo ou definir a largura como zero para desativ\u00e1-la."
+    },
+    "settings_trigger_area_indicator_width": {
+        "message": "Largura do indicador"
+    },
+    "settings_trigger_area_indicator_width_desc": {
+        "message": "Largura da barra indicadora vis\u00edvel. Pode ser diferente da largura do gatilho."
+    },
+    "settings_trigger_area_indicator_color": {
+        "message": "Cor do indicador"
+    },
+    "settings_trigger_area_indicator_icon_size": {
+        "message": "Tamanho do \u00edcone do indicador"
+    },
+    "settings_trigger_area_indicator_icon_color": {
+        "message": "Cor do \u00edcone do indicador"
+    },
+    "settings_keyboard_shortcut_button": {
+        "message": "Definir tecla de atalho"
+    },
+    "settings_icon_action": {
+        "message": "Clique no \u00edcone da extens\u00e3o"
+    },
+    "settings_icon_action_desc": {
+        "message": "Voc\u00ea pode escolher como a barra lateral deve aparecer quando clicar no \u00edcone de extens\u00e3o localizado \u00e0 direita da barra de endere\u00e7os do navegador."
+    },
+    "settings_icon_action_overlay": {
+        "message": "Abra a barra lateral na parte superior dos sites"
+    },
+    "settings_icon_action_sidepanel": {
+        "message": "Abra a barra lateral no painel lateral fornecido pelo navegador"
+    },
+    "settings_link_action": {
+        "message": "Abrir favoritos"
+    },
+    "settings_link_action_desc": {
+        "message": "Ao clicar com o bot\u00e3o esquerdo em um favorito, este ser\u00e1 aberto na guia atual ou em uma nova guia."
+    },
+    "settings_link_action_current_tab": {
+        "message": "Guia atual"
+    },
+    "settings_link_action_new_tab": {
+        "message": "Nova guia"
+    },
+    "settings_open_delay": {
+        "message": "Atraso de abertura"
+    },
+    "settings_open_delay_desc": {
+        "message": "Evita que a barra lateral abra imediatamente ao posicionar o mouse sobre ou ao clicar na \u00e1rea de ativa\u00e7\u00e3o."
+    },
+    "settings_prevent_pagescroll": {
+        "message": "Impedir a rolagem da p\u00e1gina"
+    },
+    "settings_prevent_pagescroll_desc": {
+        "message": "Impedir a rolagem da p\u00e1gina em uso enquanto a barra lateral estiver aberta."
+    },
+    "settings_dir_accordion": {
+        "message": "Mostrar somente a pasta atual"
+    },
+    "settings_dir_accordion_desc": {
+        "message": "Fecha todas as pastas, exceto a p\u00e1gina ativa no momento."
+    },
+    "settings_remember_state": {
+        "message": "Lembrar"
+    },
+    "settings_remember_state_open_states_and_scroll": {
+        "message": "Posi\u00e7\u00e3o de rolamento e pastas abertas"
+    },
+    "settings_remember_state_all": {
+        "message": "Posi\u00e7\u00e3o de rolamento, pastas abertas e \u00faltimo favorito aberto"
+    },
+    "settings_remember_state_open_states": {
+        "message": "Pastas abertas"
+    },
+    "settings_remember_state_open_states_root": {
+        "message": "Pastas de n\u00edvel alto abertas"
+    },
+    "settings_remember_state_nothing": {
+        "message": "Nada"
+    },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Lembrar subpastas abertas"
+    },
+    "settings_remember_desc": {
+        "message": "Selecione o que lembrar em todas as mudan\u00e7as na p\u00e1gina. Se voc\u00ea escolher lembrar o \u00faltimo favorito aberto, ele ser\u00e1 marcado ao abrir a barra lateral novamente."
+    },
+    "settings_new_tab": {
+        "message": "Nova guia"
+    },
+    "settings_new_tab_desc": {
+        "message": "Abrir favoritos em uma nova guia em primeiro ou segundo plano"
+    },
+    "settings_new_tab_foreground": {
+        "message": "Abrir em primeiro plano"
+    },
+    "settings_new_tab_background": {
+        "message": "Abrir em segundo plano"
+    },
+    "settings_new_tab_position_desc": {
+        "message": "Abrir novas guias ap\u00f3s o \u00faltimo ou a guia atual"
+    },
+    "settings_new_tab_position_after_last": {
+        "message": "Ap\u00f3s a \u00faltima guia"
+    },
+    "settings_new_tab_position_after_current": {
+        "message": "Ap\u00f3s a guia atual"
+    },
+    "settings_new_tab_position_before_first": {
+        "message": "Antes da primeira guia"
+    },
+    "settings_close_timeout": {
+        "message": "Tempo limite de fechamento"
+    },
+    "settings_close_timeout_desc": {
+        "message": "Tempo limite em segundos at\u00e9 que a barra lateral seja fechada. A contagem ser\u00e1 iniciada logo ap\u00f3s o cursor do mouse sair da barra lateral e ser\u00e1 interrompida quando o cursor for posicionado sobre ela novamente."
+    },
+    "settings_close_timeout_infinity": {
+        "message": "N\u00e3o fechar automaticamente"
+    },
+    "settings_scroll_bar_hide": {
+        "message": "Ocultar barra de rolagem"
+    },
+    "settings_scroll_bar_hide_desc": {
+        "message": "Tempo limite em segundos at\u00e9 que a barra de rolagem seja ocultada. Ao rolar-se a p\u00e1gina, a barra de rolagem aparecer\u00e1 novamente."
+    },
+    "settings_scroll_bar_hide_infinity": {
+        "message": "Nunca ocultar"
+    },
+    "settings_prevent_windowed": {
+        "message": "Desativar a barra lateral no modo janela"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Desativa a possibilidade de abrir a barra lateral ao clicar ou posicionar o ponteiro do mouse sobre a borda do conte\u00fado do navegador quando o navegador estiver no modo janela."
+    },
+    "settings_tooltip_delay": {
+        "message": "Atraso da dica de contexto"
+    },
+    "settings_tooltip_delay_desc": {
+        "message": "Atraso antes que as dicas de contexto para os favoritos sejam mostradas ao passar o ponteiro do mouse por cima."
+    },
+    "settings_tooltip_delay_infinity": {
+        "message": "Nunca mostrar dicas de contexto"
+    },
+    "settings_tooltip_desc": {
+        "message": "Selecionar qual informa\u00e7\u00e3o a dica de contexto deve conter."
+    },
+    "settings_tooltip_content": {
+        "message": "Conte\u00fado da dica de contexto"
+    },
+    "settings_tooltip_content_all": {
+        "message": "T\u00edtulo e URL"
+    },
+    "settings_tooltip_content_title": {
+        "message": "Apenas t\u00edtulo"
+    },
+    "settings_tooltip_content_url": {
+        "message": "Apenas URL"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Informa\u00e7\u00e3o adicional"
+    },
+    "settings_sidebar_overlay_intro": {
+        "message": "Aqui voc\u00ea pode alterar o comportamento da barra lateral de sobreposi\u00e7\u00e3o que se abre na parte superior dos sites."
+    },
+    "settings_sidebar_position": {
+        "message": "Posi\u00e7\u00e3o"
+    },
+    "settings_overlay_enabled": {
+        "message": "Ativar sobreposi\u00e7\u00e3o da barra lateral"
+    },
+    "settings_overlay_enabled_desc": {
+        "message": "Se voc\u00ea deseja acessar seus favoritos apenas no painel lateral fornecido pelo navegador, pode desativar a barra lateral de sobreposi\u00e7\u00e3o."
+    },
+    "settings_sidebar_position_desc": {
+        "message": "Permite que voc\u00ea defina se a barra lateral deve abrir no lado esquerdo ou direito da tela."
+    },
+    "settings_sidebar_position_left": {
+        "message": "Esquerda"
+    },
+    "settings_sidebar_position_right": {
+        "message": "Direita"
+    },
+    "settings_filter_explanation_1": {
+        "message": "Somente adicionar um padr\u00e3o de URL por linha."
+    },
+    "settings_filter_explanation_2": {
+        "message": "Use * para corresponder a qualquer caractere (por exemplo: exemplo.com\/* corresponde a todas as p\u00e1ginas relacionadas a exemplo.com)"
+    },
+    "settings_filter_explanation_3": {
+        "message": "Se voc\u00ea n\u00e3o incluir nenhum * em uma regra, ser\u00e1 correspondido somente ao exato URL (por exemplo: \"exemplo.com\" n\u00e3o corresponde ao URL \"exemplo.com\/sobre.html\")"
+    },
+    "settings_filter_explanation_4": {
+        "message": "Voc\u00ea n\u00e3o precisa adicionar o protocolo (por exemplo: http:\/\/) nas regras."
+    },
+    "settings_filter_visibility": {
+        "message": "Carregar a barra lateral"
+    },
+    "settings_filter_visibility_desc": {
+        "message": "Se voc\u00ea n\u00e3o deseja que a barra lateral seja carregada em todas as p\u00e1ginas, pode configurar onde carregar a extens\u00e3o (lista branca) ou onde n\u00e3o carreg\u00e1-la (lista negra)."
+    },
+    "settings_filter_visibility_always": {
+        "message": "Em todas as p\u00e1ginas"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "Em todas as p\u00e1ginas, exceto p\u00e1ginas espec\u00edficas"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Somente em p\u00e1ginas espec\u00edficas"
+    },
+    "settings_filter_rules": {
+        "message": "Padr\u00f5es de URL"
+    },
+    "settings_import_export_headline": {
+        "message": "Configura\u00e7\u00f5es de importa\u00e7\u00e3o\/exporta\u00e7\u00e3o"
+    },
+    "settings_import_export_notice": {
+        "message": "As configura\u00e7\u00f5es da extens\u00e3o s\u00e3o sincronizadas automaticamente entre seus dispositivos, se sua conta do Google estiver conectada no {browserName} . Se voc\u00ea n\u00e3o quiser que sua conta esteja conectada ou quiser compartilhar suas configura\u00e7\u00f5es com outras pessoas, pode usar esta op\u00e7\u00e3o de importar\/exportar."
+    },
+    "settings_import_export_desc": {
+        "message": "Voc\u00ea pode exportar suas configura\u00e7\u00f5es da extens\u00e3o e salv\u00e1-las localmente no seu computador. Voc\u00ea pode importar o arquivo previamente exportado para qualquer computador onde a extens\u00e3o esteja instalada."
+    },
+    "settings_export": {
+        "message": "Exportar Configura\u00e7\u00f5es"
+    },
+    "settings_import": {
+        "message": "Importar Configura\u00e7\u00f5es"
+    },
+    "settings_import_saved": {
+        "message": "Configura\u00e7\u00e3o importada com sucesso"
+    },
+    "settings_import_failed": {
+        "message": "Falha ao importar a configura\u00e7\u00e3o. Por favor, escolha um arquivo v\u00e1lido."
+    },
+    "settings_import_export_bookmarks": {
+        "message": "Favoritos de importa\u00e7\u00e3o\/exporta\u00e7\u00e3o"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "Esta \u00e9 uma caracter\u00edstica do navegador e n\u00e3o faz parte da extens\u00e3o. Leia mais sobre como importar e exportar bookmarks em {browserName}."
+    },
+    "settings_sidebar_sidepanel_intro": {
+        "message": "Aqui voc\u00ea pode alterar o comportamento da barra lateral que \u00e9 exibida no painel lateral ao lado do conte\u00fado principal das p\u00e1ginas da web."
+    },
+    "settings_sidebar_position_sidepanel": {
+        "message": "Configure se o painel lateral do navegador deve abrir no lado esquerdo ou direito."
+    },
+    "settings_sidebar_sidepanel_configure": {
+        "message": "Configure o Painel Lateral"
+    },
+    "settings_presets": {
+        "message": "Definir tamanhos relativos"
+    },
+    "settings_presets_desc": {
+        "message": "Voc\u00ea pode selecionar tamanhos pr\u00e9-definidos para a barra lateral. Isto ir\u00e1 mudar os controles deslizantes nesta p\u00e1gina para ajustar a largura da barra lateral, as alturas das linhas, os tamanhos dos \u00edcones e muito mais op\u00e7\u00f5es."
+    },
+    "settings_color_scheme": {
+        "message": "Esquema de cores"
+    },
+    "settings_surface": {
+        "message": "Superf\u00edcie"
+    },
+    "settings_surface_auto": {
+        "message": "Autom\u00e1tico"
+    },
+    "settings_surface_info": {
+        "message": "Adaptar automaticamente a superf\u00edcie da barra lateral para o padr\u00e3o do sistema (claro ou escuro) ou escolha entre elas para permitir customiza\u00e7\u00f5es posteriores."
+    },
+    "settings_color_scheme_desc": {
+        "message": "A cor do cabe\u00e7alho, caixas de sele\u00e7\u00e3o etc. da barra lateral."
+    },
+    "settings_text_color": {
+        "message": "Cor do texto"
+    },
+    "settings_hover_color": {
+        "message": "Cor ao passar o mouse sobre o item"
+    },
+    "settings_font_family": {
+        "message": "Estilo da fonte"
+    },
+    "settings_font_family_default": {
+        "message": "Padr\u00e3o"
+    },
+    "settings_font_family_desc": {
+        "message": "O estilo da fonte da barra lateral e das sobreposi\u00e7\u00f5es"
+    },
+    "settings_scroll_bar_width": {
+        "message": "Largura da barra de rolagem"
+    },
+    "settings_icon_background_color": {
+        "message": "Cor de Fundo"
+    },
+    "settings_icon_color": {
+        "message": "Cor"
+    },
+    "settings_icon_color_auto": {
+        "message": "Automaticamente"
+    },
+    "settings_icon_color_custom": {
+        "message": "Personalizado"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "A cor do \u00edcone ser\u00e1 definida automaticamente, de forma a corresponder ao esquema de cores do seu sistema (claro ou escuro). Voc\u00ea tamb\u00e9m pode definir sua pr\u00f3pria cor personalizada para o \u00edcone."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "Por favor, observe que a cor autom\u00e1tica n\u00e3o funciona quando \u00e9 usado um tema personalizado do {browserName}."
+    },
+    "settings_indicator_width": {
+        "message": "Largura"
+    },
+    "settings_indicator_color": {
+        "message": "Cor"
+    },
+    "settings_indicator_icon_size": {
+        "message": "Tamanho do \u00edcone"
+    },
+    "settings_indicator_icon_color": {
+        "message": "Cor do \u00edcone"
+    },
+    "settings_sidebar_width": {
+        "message": "Largura"
+    },
+    "settings_sidebar_width_desc": {
+        "message": "A largura da barra lateral ao sobrepor o site atualmente visitado. Esta op\u00e7\u00e3o n\u00e3o tem efeito ao usar a barra lateral no painel lateral fornecido pelo navegador."
+    },
+    "settings_header_height": {
+        "message": "Altura do cabe\u00e7alho"
+    },
+    "settings_sidebar_mask_color": {
+        "message": "Cor da m\u00e1scara"
+    },
+    "settings_background_transparency": {
+        "message": "Transpar\u00eancia do plano de fundo"
+    },
+    "settings_background_blur": {
+        "message": "Efeito blur no plano de fundo"
+    },
+    "settings_bookmarks_dir_icon": {
+        "message": "\u00cdcone da pasta"
+    },
+    "settings_bookmarks_dir_color": {
+        "message": "Cor do \u00edcone da pasta"
+    },
+    "settings_bookmarks_font_size": {
+        "message": "Tamanho da fonte dos favoritos"
+    },
+    "settings_bookmarks_icon_size": {
+        "message": "Tamanho dos \u00edcones dos favoritos"
+    },
+    "settings_directories_icon_size": {
+        "message": "Tamanho dos \u00edcones das pastas"
+    },
+    "settings_directory_arrows": {
+        "message": "Setas da pasta"
+    },
+    "settings_bookmarks_line_height": {
+        "message": "Altura da linha dos favoritos"
+    },
+    "settings_bookmarks_horizontal_padding": {
+        "message": "Preenchimento horizontal dos favoritos"
+    },
+    "settings_bookmarks_dir_indentation": {
+        "message": "Recuo da pasta"
+    },
+    "settings_tooltip_font_size": {
+        "message": "Tamanho da fonte da dica de contexto"
+    },
+    "settings_overlay_mask_color": {
+        "message": "Cor da m\u00e1scara"
+    },
+    "settings_icon_shape": {
+        "message": "Forma"
+    },
+    "settings_custom_css": {
+        "message": "Folha de estilo personalizada"
+    },
+    "settings_custom_css_desc": {
+        "message": "Voc\u00ea pode definir sua pr\u00f3pria folha de estilo para substituir o estilo padr\u00e3o. Por favor, somente use esta op\u00e7\u00e3o se voc\u00ea estiver familiarizado com CSS e sabe o que est\u00e1 fazendo."
+    },
+    "settings_theme": {
+        "message": "Tema"
+    },
+    "settings_themes_notice": {
+        "message": "Voc\u00ea pode escolher o design b\u00e1sico da barra lateral. O tema selecionado pode ser customizado com os controles dispon\u00edveis e com as op\u00e7\u00f5es de cor."
+    },
+    "settings_available_themes": {
+        "message": "Temas Dispon\u00edveis"
+    },
+    "settings_show_themes": {
+        "message": "Mostras temas dispon\u00edveis"
+    },
+    "settings_theme_default": {
+        "message": "Tema padr\u00e3o"
+    },
+    "settings_theme_default_desc": {
+        "message": "Este tema lhe proporciona o acesso aos seus favoritos de uma forma moderna e clean. Muitos elementos s\u00e3o coloridos em um esquema de cor configuravel."
+    },
+    "settings_theme_glass": {
+        "message": "Tema envidra\u00e7ado"
+    },
+    "settings_theme_glass_desc": {
+        "message": "Este tema deixa o plano de fundo da barra lateral semi-transparente e adiciona um efeito de distor\u00e7\u00e3o por vidro. voc\u00ea pode ajustar este efeito e a transpar\u00eancia da barra lateral."
+    },
+    "settings_theme_focus": {
+        "message": "Tema Focus"
+    },
+    "settings_theme_focus_desc": {
+        "message": "Este tema reduz as anima\u00e7\u00f5es e organiza os elementos de forma mais densa para uma melhor produtividade e desempenho."
+    },
+    "settings_install_theme": {
+        "message": "Instalar tema"
+    },
+    "settings_installed_theme_info": {
+        "message": "Atualmente instalado"
+    },
+    "settings_theme_changed": {
+        "message": "Tema alterado com sucesso"
+    },
+    "settings_newtab_intro": {
+        "message": "Deseja abrir sua barra lateral de favoritos automaticamente em novas abas?"
+    },
+    "settings_newtab_install_extension": {
+        "message": "Instalar uma nova extens\u00e3o de substitui\u00e7\u00e3o da nova aba como uma destas:"
+    },
+    "settings_newtab_extension_disclaimer": {
+        "message": "N\u00e3o tenho qualquer afilia\u00e7\u00e3o com essas extens\u00f5es e n\u00e3o recebo nenhuma compensa\u00e7\u00e3o por recomend\u00e1-las."
+    },
+    "settings_newtab_extension_desc": {
+        "message": "Essas extens\u00f5es permitem que voc\u00ea defina uma URL personalizada para novas abas. Ap\u00f3s a instala\u00e7\u00e3o, insira a seguinte URL nas configura\u00e7\u00f5es da extens\u00e3o:"
+    },
+    "settings_newtab_override_preview": {
+        "message": "Previsualiza\u00e7\u00e3o"
+    },
+    "settings_newtab_override_customise": {
+        "message": "Personalize est\u00e1 p\u00e1gina"
+    },
+    "settings_newtab_favicon_desc": {
+        "message": "Voc\u00ea \u00b4pode personalizar o icone de Aba (favicon) para uma nova aba. Isso permite que voc\u00ea a reconhe\u00e7a facilmente entre as suas abas abertas."
+    },
+    "newtab_tmp_upgrade_headline": {
+        "message": "Sua Barra Lateral de Favoritos acabou de ser atualizada."
+    },
+    "newtab_tmp_upgrade_action_required": {
+        "message": "Ac\u00e3o requerida!"
+    },
+    "newtab_tmp_upgrade_desc1": {
+        "message": "Devido a uma pol\u00edtica de aplica\u00e7\u00e3o do Google, a funcionalidade anterior de substitui\u00e7\u00e3o da nova aba teve que ser removida, pois n\u00e3o est\u00e1 mais em conformidade com as diretrizes para desenvolvedores."
+    },
+    "newtab_tmp_upgrade_desc2": {
+        "message": "Como um resultado, sua configura\u00e7\u00e3o atual que substitui a p\u00e1gina de Nova Aba foi afetada."
+    },
+    "newtab_tmp_upgrade_desc3": {
+        "message": "Para restaurar o comportamento esperado, configure a solu\u00e7\u00e3o atualizada nas configura\u00e7\u00f5es da extens\u00e3o."
+    },
+    "newtab_tmp_upgrade_open_settings": {
+        "message": "Abrir configura\u00e7\u00f5es"
+    },
+    "settings_language": {
+        "message": "Idioma"
+    },
+    "settings_language_default": {
+        "message": "Padr\u00e3o do navegador"
+    },
+    "settings_language_desc": {
+        "message": "O idioma da interface do usu\u00e1rio"
+    },
+    "settings_translation_link": {
+        "message": "V\u00e1 para a vis\u00e3o geral de tradu\u00e7\u00e3o"
+    },
+    "settings_translation_desc": {
+        "message": "Voc\u00ea pode ajudar traduzindo a extens\u00e3o para o seu idioma ou melhorando a tradu\u00e7\u00e3o j\u00e1 existente."
+    },
+    "settings_translation_add_language": {
+        "message": "Adicionar idioma"
+    },
+    "settings_translation_back_to_overview": {
+        "message": "Voltar \u00e0 vis\u00e3o geral"
+    },
+    "settings_translation_info": {
+        "message": "Voc\u00ea pode editar tradu\u00e7\u00f5es existentes ou adicionar novas. Se voc\u00ea enviar suas mudan\u00e7as, eu irei revis\u00e1-las e aprov\u00e1-las."
+    },
+    "settings_translation_notice1": {
+        "message": "Assim que todas as categorias marcadas como requeridas forem traduzidas, a tradu\u00e7\u00e3o ser\u00e1 lan\u00e7ada."
+    },
+    "settings_translation_notice2": {
+        "message": "Categorias incompletas n\u00e3o ser\u00e3o liberadas para prevenir textos parcialmente traduzidos."
+    },
+    "settings_translation_help": {
+        "message": "Para cada entrada, voc\u00ea pode ver a tradu\u00e7\u00e3o em ingl\u00eas, a qual precisa ser traduzida para o seu idioma. Para ajud\u00e1-lo a identificar onde o texto \u00e9 usado e para o que se destina, cada entrada tem um nome (por exemplo, {1}), o qual n\u00e3o deve ser traduzido. Por favor, n\u00e3o se esque\u00e7a de enviar sua tradu\u00e7\u00e3o, pressionando o bot\u00e3o no canto superior direito!"
+    },
+    "settings_translation_reminder_desc": {
+        "message": "Quero ser notificado quando novas vari\u00e1veis de idioma forem adicionadas \u00e0 extens\u00e3o"
+    },
+    "settings_translation_submit": {
+        "message": "Enviar"
+    },
+    "settings_translation_submit_message": {
+        "message": "Sua tradu\u00e7\u00e3o foi enviada com sucesso"
+    },
+    "settings_translation_status_released": {
+        "message": "Tradu\u00e7\u00e3o dispon\u00edvel"
+    },
+    "settings_translation_status_incomplete": {
+        "message": "A tradu\u00e7\u00e3o est\u00e1 dispon\u00edvel, mas algumas categorias est\u00e3o incompletas"
+    },
+    "settings_translation_status_draft": {
+        "message": "A tradu\u00e7\u00e3o est\u00e1 incompleta ou precisa de uma revis\u00e3o e n\u00e3o est\u00e1 dispon\u00edvel para os usu\u00e1rios"
+    },
+    "settings_translation_incomplete_info": {
+        "message": "Algumas tradu\u00e7\u00f5es est\u00e3o faltando."
+    },
+    "settings_translation_required_category": {
+        "message": "Obrigat\u00f3rio"
+    },
+    "settings_support_faq_headline": {
+        "message": "Perguntas frequentes"
+    },
+    "settings_support_feedback_headline": {
+        "message": "Coment\u00e1rios"
+    },
+    "settings_support_feedback_desc": {
+        "message": "Voc\u00ea tem alguma sugest\u00e3o de melhoria, d\u00favidas, percebeu a aus\u00eancia de op\u00e7\u00f5es de configura\u00e7\u00e3o ou encontrou um erro? Para ajudar a aprimorar a experi\u00eancia de uso desta extens\u00e3o, eu ficaria muito grato por todo e qualquer coment\u00e1rio dado ou que voc\u00ea tiver."
+    },
+    "settings_support_feedback_notice": {
+        "message": "Por favor, escreva seu coment\u00e1rio em ingl\u00eas, caso contr\u00e1rio ser\u00e1 dif\u00edcil entender e responder sua mensagem."
+    },
+    "settings_support_feedback_email": {
+        "message": "Voc\u00ea quer uma resposta? Por-favor, forne\u00e7a um endere\u00e7o de e-mail (opcional)"
+    },
+    "settings_support_feedback_screenshot": {
+        "message": "Anexar capturas de tela"
+    },
+    "settings_support_feedback_screenshot_error_filesize": {
+        "message": "O tamanho do arquivo de {1} \u00e9 muito grande (> 1 MB)"
+    },
+    "settings_support_feedback_screenshot_error_amount": {
+        "message": "Voc\u00ea s\u00f3 pode enviar no m\u00e1ximo {1} capturas de tela"
+    },
+    "settings_support_feedback_send": {
+        "message": "Enviar coment\u00e1rio"
+    },
+    "settings_support_feedback_sent_message": {
+        "message": "Obrigado pelo seu coment\u00e1rio"
+    },
+    "settings_support_feedback_send_failed": {
+        "message": "Sua mensagem n\u00e3o p\u00f4de ser enviada. Por favor, tente novamente."
+    },
+    "settings_permissions_desc": {
+        "message": "A fim de se tornar poss\u00edvel que a barra lateral seja ativada e desativada no {browserName}, as seguintes permiss\u00f5es s\u00e3o requeridas e solicitadas pela extens\u00e3o:"
+    },
+    "settings_permissions_contentscript_desc_1": {
+        "message": "Infelizmente, o {browserName} n\u00e3o possui mecanismo para exibir conte\u00fado na janela do navegador sem que haja intera\u00e7\u00e3o com a p\u00e1gina visitada no momento."
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "Como a barra lateral est\u00e1 sendo exibida no topo da p\u00e1gina atual, essa permiss\u00e3o \u00e9 necess\u00e1ria. Al\u00e9m dessa raz\u00e3o t\u00e9cnica, a permiss\u00e3o n\u00e3o \u00e9 usada para outros fins."
+    },
+    "settings_permissions_contentscript_desc_3": {
+        "message": "Se voc\u00ea tiver alguma d\u00favida sobre o que estou fazendo com a permiss\u00e3o, pode visualizar o c\u00f3digo-fonte da extens\u00e3o no Github. \u00c9 Open Source e vis\u00edvel para todos."
+    },
+    "settings_permissions_bookmarks_desc": {
+        "message": "A extens\u00e3o est\u00e1 exibindo seus favoritos na barra lateral e, portanto, precisa desta permiss\u00e3o para obter acesso. A permiss\u00e3o tamb\u00e9m autoriza que a extens\u00e3o adicione, edite e remova favoritos."
+    },
+    "settings_headline_share_userdata": {
+        "message": "Compartilhar informa\u00e7\u00f5es"
+    },
+    "settings_saved_share_userdata": {
+        "message": "Sua prefer\u00eancia foi salva com sucesso"
+    },
+    "premium_popup_text": {
+        "message": "Voc\u00ea j\u00e1 est\u00e1 sabendo da vers\u00e3o Premium?"
+    },
+    "premium_restricted_text": {
+        "message": "Este recurso est\u00e1 dispon\u00edvel apenas na vers\u00e3o Premium."
+    },
+    "premium_desc_1": {
+        "message": "Com a vers\u00e3o Premium, voc\u00ea ter\u00e1 acesso a recursos adicionais e poder\u00e1 me ajudar a manter a extens\u00e3o."
+    },
+    "premium_desc_2": {
+        "message": "Voc\u00ea pode verificar abaixo quais recursos est\u00e3o dispon\u00edveis na vers\u00e3o Premium. Todos os principais recursos da extens\u00e3o s\u00e3o gratuitos para usar e n\u00e3o requerem a vers\u00e3o Premium. Voc\u00ea pode pagar quanto a extens\u00e3o e meu trabalho valem para voc\u00ea, para ter acesso a estes recursos."
+    },
+    "premium_get_now": {
+        "message": "Obtenha a vers\u00e3o Premium agora"
+    },
+    "premium_show_license_input": {
+        "message": "Eu j\u00e1 tenho a vers\u00e3o Premium"
+    },
+    "premium_already_activated": {
+        "message": "Voc\u00ea j\u00e1 est\u00e1 usando a vers\u00e3o Premium"
+    },
+    "premium_activate": {
+        "message": "Ativar a vers\u00e3o Premium"
+    },
+    "premium_license_key": {
+        "message": "Chave de licen\u00e7a"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "Seja o primeiro a testar novos recursos experimentais"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "Com a vers\u00e3o Premium, voc\u00ea ter\u00e1 acesso a recursos ainda n\u00e3o lan\u00e7ados, os quais est\u00e3o em desenvolvimento ou passando por testes."
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "Altere a largura da sua barra lateral a qualquer momento"
+    },
+    "premium_feature_import_export_headline": {
+        "message": "Importe e exporte suas configura\u00e7\u00f5es"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "Personalize sua p\u00e1gina de Nova Guia"
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "Se voc\u00ea est\u00e1 usando a p\u00e1gina de Nova Guia desta extens\u00e3o, poder\u00e1 escolher sua pr\u00f3pria imagem de fundo para deix\u00e1-la com uma apar\u00eancia ainda mais legal."
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "Personalize tudo com sua pr\u00f3pria Folha de Estilo"
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "Se voc\u00ea est\u00e1 familiarizado com CSS, poder\u00e1 alterar completamente a apar\u00eancia da barra lateral, adicionando suas pr\u00f3prias defini\u00e7\u00f5es de estilo. Isto permite que voc\u00ea personalize absolutamente tudo."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "Encontre links quebrados ou duplicados em seus favoritos"
+    },
+    "premium_feature_linkchecker_desc": {
+        "message": "Voc\u00ea pode clicar com o bot\u00e3o direito em qualquer pasta da sua barra lateral para iniciar a verifica\u00e7\u00e3o. A p\u00e1gina de resultado apresentar\u00e1 todos os URLs atualizados, favoritos que n\u00e3o est\u00e3o mais funcionando e favoritos com o mesmo URL."
+    },
+    "premium_feature_themes_headline": {
+        "message": "Alterar o tema da sua barra lateral"
+    },
+    "premium_feature_themes_desc": {
+        "message": "Voc\u00ea pode trocar todo o design da barra lateral com um clique instalando outro tema. Eles tamb\u00e9m podem ser personalizados com os controles deslizantes e as op\u00e7\u00f5es de cores dispon\u00edveis."
+    },
+    "premium_pay_intro_payment_method": {
+        "message": "Selecione um m\u00e9todo de pagamento abaixo e escolha o valor desejado que deseja pagar na pr\u00f3xima etapa."
+    },
+    "premium_pay_what_you_want": {
+        "message": "Pague quanto voc\u00ea desejar"
+    },
+    "premium_pay_contact": {
+        "message": "Se voc\u00ea est\u00e1 encontrando quaisquer problemas com o pagamento ou tem d\u00favidas a respeito, por favor entre em contato comigo atrav\u00e9s do e-mail {1}."
+    },
+    "premium_pay_price_total": {
+        "message": "Total"
+    },
+    "premium_pay_price_info": {
+        "message": "Essa \u00e9 uma mudan\u00e7a que s\u00f3 acontece uma vez e tamb\u00e9m inclui todas as futuras funcionalidades premium."
+    },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "Voc\u00ea pode pagar o valor que achar v\u00e1lido para a extens\u00e3o, meu objetivo \u00e9 que voc\u00ea ganhe acesso aos recursos premium. Voc\u00ea sempre receber\u00e1 todos os recursos independentemente do valor que escolher pagar."
+    },
+    "premium_pay_eula": {
+        "message": "Acordo de Licen\u00e7a de Usu\u00e1rio Final"
+    },
+    "premium_pay_eula_desc": {
+        "message": "Eu li e aceito o [a]Acordo de Licen\u00e7a de Usu\u00e1rio Final[\/a]"
+    },
+    "premium_pay_cancellation_policy": {
+        "message": "Pol\u00edtica de cancelamento"
+    },
+    "premium_pay_confirm_headline": {
+        "message": "Confirmar compra"
+    },
+    "premium_pay_buy": {
+        "message": "Adquira a vers\u00e3o Premium"
+    },
+    "premium_pay_verifying": {
+        "message": "Verificando transa\u00e7\u00e3o"
+    },
+    "premium_pay_purchase_id": {
+        "message": "Compre uma ID"
+    },
+    "premium_pay_success_headline": {
+        "message": "Obrigado por sua compra"
+    },
+    "premium_pay_success_info": {
+        "message": "{1} foi ativado automaticamente para este dispositivo. Voc\u00ea n\u00e3o precisa realizar nenhuma etapa adicional."
+    },
+    "premium_pay_license_key_desc": {
+        "message": "Se voc\u00ea quiser ativar {1} em outro dispositivo ou ap\u00f3s reinstalar a extens\u00e3o, pode inserir a seguinte chave nas configura\u00e7\u00f5es da extens\u00e3o:"
+    },
+    "premium_pay_info_email": {
+        "message": "E-mail"
+    },
+    "premium_pay_info_email_desc": {
+        "message": "Por favor, informe seu endere\u00e7o de e-mail para receber a chave de licen\u00e7a."
+    },
+    "premium_pay_info_name": {
+        "message": "Nome"
+    }
+}

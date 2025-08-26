@@ -1,0 +1,225 @@
+@import "include/vars";
+@import "include/mixins";
+@import "include/settingsMixins";
+//
+$__colorScheme: $mainColor2;
+$__textColor: $textColor;
+@import "include/loading";
+@import "include/checkbox";
+//
+@import "include/generals";
+//
+$__scrollBarWidth: 14px;
+@import "include/scrollBox";
+@import "include/settings/header";
+@import "include/settings/content";
+@import "include/settings/dashboard";
+@import "include/settings/advanced";
+@import "include/settings/infos";
+@import "include/settings/sidebar";
+@import "include/settings/appearance";
+@import "include/settings/newtab";
+@import "include/settings/support";
+@import "include/settings/premium";
+@import "include/settings/form";
+@import "include/settings/translation";
+@import "include/settings/importExport";
+@import "include/settings/menu";
+@import "include/settings/tooltip";
+@import "include/settings/expert";
+@import "include/settings/colorpicker";
+
+body {
+  background: $bodyBackground;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-width: 1024px;
+  height: 100%;
+  user-select: none;
+  overflow: hidden;
+
+  @media (max-width: 800px) {
+    overflow: auto;
+  }
+
+  &::before, &::after {
+    position: fixed;
+    @extend %hidden;
+  }
+
+  &::after {
+    content: attr(data-successtext);
+    top: 70px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 600px;
+    padding: 40px;
+    text-align: center;
+    font-size: 140%;
+    color: $textColorInverted;
+    background: $colorSuccess;
+    transform: translate3d(0, -50px, 0);
+    transition: opacity 0.5s, transform 0.5s;
+    z-index: 99;
+  }
+
+  &::before {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    transition: opacity 0.3s;
+    z-index: 98;
+  }
+
+  &.success {
+
+    &::before, &::after {
+      @extend %visible;
+    }
+
+    &::after {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &.initLoading {
+
+    &::before {
+      @extend %visible;
+      background: $bodyBackground;
+    }
+  }
+
+  &.loading {
+
+    &::before {
+      @extend %visible;
+    }
+  }
+
+  > svg.loading {
+    position: fixed;
+    display: block !important;
+    top: calc(50% - 18px);
+    left: calc(50% - 18px);
+    z-index: 99;
+  }
+}
+
+// Headlines
+h2 {
+  font-size: 150%;
+  font-weight: $__fontWeightNormal;
+  color: $mainColor2;
+  margin: 0 0 15px 0;
+}
+
+// Notice
+div.noticeBox {
+  @include mask('icon-info', $textColorLight, 32px);
+
+  &::before {
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    width: 32px;
+    height: 32px;
+    margin: auto;
+  }
+
+  > p {
+    line-height: 150%;
+    padding: 3px 0 3px 40px;
+  }
+
+  > h2 {
+    padding: 0 0 0 40px;
+    margin-bottom: 5px;
+  }
+}
+
+// List
+ul.bulletList {
+
+  > li {
+    position: relative;
+    padding-left: 10px;
+
+    &::before {
+      content: "-";
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
+// Separator
+hr {
+  border: none;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 15px 0;
+}
+
+// Button
+main button[type='submit'], a.button {
+  @extend %button;
+  margin: 10px 0;
+}
+
+// Image
+img[loading='lazy'] {
+  transition: opacity 0.5s;
+  opacity: 0;
+
+  &.lazyloaded {
+    opacity: 1;
+  }
+}
+
+// Premium Text
+p.premium {
+  @include mask('icon-premium', $__textColor, 32px);
+  position: relative;
+  margin: 20px 0;
+  padding: 0 0 0 50px;
+  font-size: 120%;
+
+  &::before {
+    -webkit-mask-position-x: 0;
+    pointer-events: none;
+  }
+
+  > span {
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  > a {
+    font-weight: $__fontWeightMedium;
+    cursor: pointer;
+    color: $mainColor2;
+    font-size: 80%;
+  }
+}
+
+// External link
+a.externalLink {
+  display: inline-block;
+  font-weight: $__fontWeightMedium;
+  color: $mainColor2;
+  font-size: 90%;
+  margin-top: 15px;
+
+  &::before {
+    content: attr(href);
+  }
+}
+
+@import "rtl/settings";

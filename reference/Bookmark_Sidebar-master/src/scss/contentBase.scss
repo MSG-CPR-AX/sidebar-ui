@@ -1,0 +1,53 @@
+@import "include/vars";
+@import "include/mixins";
+
+// Indicator
+body > div#redeviation-bs-indicator {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: #{2147483647 - 2};
+
+  &.redeviation-bs-visible {
+    display: block;
+  }
+}
+
+// Sidebar
+body > #redeviation-bs-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  @extend %hidden;
+}
+
+// Overlay
+body > #redeviation-bs-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  @extend %hidden;
+}
+
+// No Animations
+body > div#redeviation-bs-indicator.noAnimations,
+body > #redeviation-bs-sidebar.noAnimations,
+body > #redeviation-bs-overlay.noAnimations {
+
+  &, &::before, &::after, > * {
+    transition: none !important;
+  }
+}
+
+// Print
+@media print {
+  [id^='redeviation-bs-'] {
+    display: none !important;
+  }
+}

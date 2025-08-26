@@ -1,0 +1,119 @@
+
+html[dir='rtl'] {
+
+  div.modal {
+
+    > header {
+      padding: 0 52px 0 75px;
+
+      &::before {
+        left: unset;
+        right: 5px;
+      }
+
+      > a.close {
+        right: unset;
+        left: 15px;
+      }
+    }
+
+    > a.preview, > span.preview {
+
+      > img, > span.icon {
+        margin: 0 0 0 20px;
+      }
+    }
+
+    &[data-type='openChildren'], &[data-type='openSelected'] {
+
+      > header::before, {
+        transform: scaleX(-1);
+      }
+    }
+
+    &[data-type='infos'] {
+
+      > ul.breadcrumb {
+        float: left;
+
+        &::before {
+          left: unset;
+          right: 0;
+          transform: scaleX(-1);
+        }
+
+        > li {
+          padding-right: 8px;
+          padding-left: 5px;
+
+          + li {
+            padding-left: 5px;
+            padding-right: 25px;
+          }
+
+          &:last-child {
+            margin-right: 0;
+            margin-left: 12px;
+          }
+
+          &::before {
+            right: unset;
+            left: -36px;
+            transform: scaleX(-1);
+          }
+
+          &::after {
+            top: 0;
+            right: unset;
+            left: -24px;
+            transform: scaleX(-1);
+          }
+        }
+      }
+
+      > ul:not(.breadcrumb) {
+
+        > li {
+
+          &.tooltip {
+            padding-right: 0;
+            padding-left: 18px;
+
+            &::before {
+              -webkit-mask-position-x: left;
+            }
+          }
+
+          > ul {
+            right: unset;
+            left: -10px;
+
+            &::before {
+              left: 10px;
+              right: unset;
+            }
+          }
+        }
+      }
+    }
+
+    &[data-type='keyboardShortcuts'] {
+
+      > div.scrollBox > div > a {
+        padding-left: 0;
+        padding-right: 16px;
+
+        &::before {
+          left: unset;
+          right: 0;
+          transform: scaleX(-1) rotateZ(45deg);
+        }
+      }
+    }
+
+    > menu.buttons {
+      right: unset;
+      left: 20px;
+    }
+  }
+}

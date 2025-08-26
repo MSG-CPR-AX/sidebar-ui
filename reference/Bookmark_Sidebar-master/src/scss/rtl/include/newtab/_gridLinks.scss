@@ -1,0 +1,9 @@
+html[dir='rtl'] {
+
+  div#gridLinks {
+
+    > ul {
+      text-align: right;
+    }
+  }
+}

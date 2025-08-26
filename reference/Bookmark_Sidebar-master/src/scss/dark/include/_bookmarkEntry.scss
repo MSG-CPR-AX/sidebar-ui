@@ -1,0 +1,38 @@
+@mixin darkBookmarkEntry {
+
+  &.separator > span.label {
+
+    &::after {
+      background: $darkSeparatorColor;
+    }
+
+    &[data-name]::before {
+      background: $darkContentBackground;
+      box-shadow: 0 0 0 10px $darkContentBackground;
+    }
+  }
+
+  > span.removeMask {
+    background: $darkRemovedBackground;
+  }
+
+  > span.drag, > span.add {
+    background-color: rgba(255, 255, 255, 0.1);
+
+    &::before {
+      background-color: $darkReorderIconColor;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.25) !important;
+
+      &::before {
+        background-color: $darkReorderIconColorActive;
+      }
+    }
+  }
+
+  &.snap {
+    background: $darkContentBackground;
+  }
+}

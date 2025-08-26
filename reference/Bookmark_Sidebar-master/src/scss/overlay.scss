@@ -1,0 +1,775 @@
+@import "include/vars";
+@import "include/mixins";
+@import "include/loading";
+@import "include/scrollBox";
+@import "include/checkbox";
+//
+$textColor: $__textColor;
+@import "include/generals";
+
+body {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    content: "";
+    position: relative;
+    display: block;
+    height: 1px;
+  }
+
+  &.noAnimations {
+
+    *, *::before, *::after {
+      transition: none !important;
+    }
+  }
+}
+
+div.modal {
+  position: relative;
+  width: 600px;
+  height: 500px;
+  background: $contentBackground;
+  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  user-select: none;
+  speak: none;
+  transform: scale(0.7);
+  z-index: 2;
+  transition: transform 0.3s;
+
+  &.visible {
+    transform: scale(1);
+  }
+
+  > header {
+    @include mask(null, $__foregroundColor, 24px);
+    position: relative;
+    color: $__foregroundColor;
+    height: $__overlayHeaderHeight;
+    padding: 0 75px 0 52px;
+    background-color: $__colorScheme;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+
+    &::before {
+      -webkit-mask-position: center;
+      width: 50px;
+      height: $__overlayHeaderHeight;
+      left: 5px;
+    }
+
+    > h1 {
+      font-size: 150%;
+      font-weight: $__fontWeightNormal;
+      line-height: $__overlayHeaderHeight;
+    }
+
+    > a.close {
+      @include mask('icon-close', $__foregroundColor, 24px);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      right: 15px;
+      display: block;
+      width: 34px;
+      height: 34px;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+      z-index: 2;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+
+  > div.scrollBox {
+    height: calc(100% - #{$__overlayHeaderHeight} - 57px);
+  }
+
+  > a.preview, > span.preview {
+    display: block;
+    font-size: 140%;
+    font-weight: $__fontWeightNormal;
+    margin: 30px 30px 20px 30px;
+    background-color: rgba(0, 0, 0, 0.05);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 17px 15px;
+
+    > img, > span.icon {
+      position: relative;
+      vertical-align: top;
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      margin: 0 20px 0 0;
+    }
+
+    > span.icon {
+      @include mask(#{'icon-' + $__bookmarksDirIcon}, $__bookmarksDirColor, 24px);
+    }
+  }
+
+  > a.preview {
+    transition: background-color 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    > span.icon {
+      @include mask(#{'icon-demo'}, transparent, 24px);
+
+      @each $color in $demoColors {
+        $i: index($demoColors, $color);
+        &[data-color='#{$i}']::before {
+          background-color: $color;
+        }
+      }
+    }
+
+    + a.previewUrl {
+      display: block;
+      margin: -15px 30px 20px 30px;
+      font-size: 80%;
+      font-weight: $__fontWeightMedium;
+      opacity: 0.7;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      cursor: pointer;
+    }
+  }
+
+  > div.info {
+    margin: 30px 30px 0;
+    padding: 20px 0 0 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    clear: both;
+
+    > h3 {
+      font-size: 100%;
+      font-weight: $__fontWeightMedium;
+    }
+
+    > p {
+      margin: 5px 0 0 0;
+      user-select: text;
+      max-height: 120px;
+      overflow: auto;
+    }
+
+    + ul {
+      margin-top: 25px;
+      padding-top: 30px;
+    }
+  }
+
+  p.premium {
+    @include mask('icon-premium', $__textColor, 48px);
+    position: relative;
+    padding: 95px 0 0 0;
+
+    &::before {
+      -webkit-mask-position-y: 20px;
+      pointer-events: none;
+    }
+
+    > span {
+      display: block;
+      margin-bottom: 25px;
+    }
+
+    > a {
+      font-weight: $__fontWeightMedium;
+      cursor: pointer;
+      color: $__colorScheme;
+      font-size: 80%;
+    }
+  }
+
+  &[data-type='keyboardShortcuts'] {
+    @extend %modalFooterBackground;
+    width: 700px;
+    height: 650px;
+    max-height: 100%;
+
+    > header::before {
+      @include maskImage('icon-keyboard');
+    }
+
+    > div.scrollBox {
+
+      > div {
+        padding: 30px 30px 5px 30px;
+
+        > h3 {
+          font-weight: $__fontWeightMedium;
+          margin: 0 0 10px 0;
+        }
+
+        > a {
+          position: relative;
+          font-weight: $__fontWeightMedium;
+          cursor: pointer;
+          color: $__colorScheme;
+          padding-left: 16px;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            width: 7px;
+            height: 7px;
+            border-top: 2px solid $__colorScheme;
+            border-right: 2px solid $__colorScheme;
+            transform: rotateZ(45deg);
+          }
+        }
+
+        > ul {
+          margin-top: 20px;
+          padding-top: 20px;
+          border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+          > li {
+            padding: 0 0 25px 0;
+
+            > strong {
+              font-size: 80%;
+              font-weight: normal;
+              margin-left: -2px;
+
+              > i {
+                display: inline-block;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                background: rgba(0, 0, 0, 0.05);
+                font-style: normal;
+                padding: 2px 4px;
+                border-radius: 2px;
+                margin: 0 2px;
+              }
+            }
+
+            > span {
+              display: block;
+              margin-top: 5px;
+            }
+          }
+        }
+      }
+    }
+
+    &.sidepanel {
+      > div.scrollBox {
+        > div {
+          padding: 20px 15px 5px;
+        }
+      }
+    }
+  }
+
+  &[data-type='delete'], &[data-type='deleteSelected'], &[data-type='hide'], &[data-type='openChildren'], &[data-type='openSelected'] {
+
+    > p {
+      padding: 30px 30px 5px;
+      font-size: 140%;
+      line-height: 170%;
+    }
+
+    &.sidepanel {
+      > p {
+        padding: 30px 15px 5px;
+      }
+    }
+  }
+
+  &[data-type='delete'] > header::before,
+  &[data-type='deleteSelected'] > header::before {
+    @include maskImage('icon-delete');
+  }
+
+  &[data-type='hide'] > header::before {
+    @include maskImage('icon-hide');
+  }
+
+  &[data-type='openChildren'], &[data-type='openSelected'] {
+
+    > header::before, {
+      @include maskImage('icon-newTab');
+    }
+  }
+
+  &[data-type='deleteSelected'] {
+
+    > p.selected {
+      position: relative;
+      margin-top: 30px;
+      margin-left: 7px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: calc(100% - 60px);
+        height: 1px;
+        background: rgba(0, 0, 0, 0.1);
+      }
+
+      > strong {
+        font-size: 160%;
+        color: $__colorScheme;
+      }
+
+      > span {
+        font-size: 120%;
+      }
+    }
+  }
+
+  &[data-type='infos'] {
+
+    > header::before {
+      @include maskImage('icon-info');
+    }
+
+    > a[data-type='bookmark-manager'] {
+      display: inline-block;
+      margin: -15px 30px 0;
+      font-size: 80%;
+      font-weight: $__fontWeightMedium;
+      cursor: pointer;
+      opacity: 0.7;
+    }
+
+    > ul.breadcrumb {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 80%;
+      margin: 0 30px 20px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+
+      &::after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 30px;
+        width: 60px;
+        height: 24px;
+        background: linear-gradient(to right, $contentBackground 0%, transparent 100%);
+        z-index: 3;
+      }
+
+      > li {
+        position: relative;
+        display: inline-block;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px 0 8px;
+        background: rgba(0, 0, 0, 0.05);
+
+        + li {
+          padding-left: 25px;
+        }
+
+        &:last-child {
+          margin-right: 12px;
+        }
+
+        &::before, &::after {
+          content: "";
+          position: absolute;
+          z-index: 2;
+        }
+
+        &::before {
+          top: -6px;
+          right: -36px;
+          border: 18px solid transparent;
+          border-left-color: $contentBackground;
+        }
+
+        &::after {
+          top: 0;
+          right: -24px;
+          border: 12px solid transparent;
+          border-left-color: rgba(0, 0, 0, 0.05);
+        }
+      }
+    }
+
+    > ul:not(.breadcrumb) {
+      display: flex;
+      flex-flow: row;
+      font-size: 120%;
+      margin: 40px 30px 0;
+      padding: 40px 0 0 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      justify-content: space-between;
+      clear: both;
+
+      > li {
+        position: relative;
+
+        &.tooltip {
+          @include mask('icon-info', $__textColor, 16px);
+          position: relative;
+          cursor: help;
+          background-size: 16px;
+          padding-right: 18px;
+
+          &::before {
+            opacity: 0.5;
+            -webkit-mask-position: right center;
+          }
+        }
+
+        > ul {
+          position: absolute;
+          top: 27px;
+          right: -10px;
+          background: $tooltipBackground;
+          color: $tooltipTextColor;
+          font-size: 65%;
+          padding: 2px 5px;
+          border-radius: 2px;
+          transform: translate3d(0, -5px, 0);
+          transition: opacity 0.3s, transform 0.3s;
+          @extend %hidden;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: -14px;
+            right: 10px;
+            border: 7px solid transparent;
+            border-bottom-color: $tooltipBackground;
+          }
+
+          > li {
+            white-space: nowrap;
+            margin: 5px 0;
+          }
+        }
+
+        &:hover > ul {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+        }
+      }
+    }
+
+    &.sidepanel {
+      > ul.breadcrumb {
+        margin: 0 15px 20px;
+      }
+
+      > ul:not(.breadcrumb) {
+        flex-flow: column;
+        margin: 30px 15px 0;
+
+        > li + li {
+          margin-top: 12px;
+        }
+      }
+    }
+  }
+
+  &[data-type='edit'], &[data-type='add'] {
+
+    > ul {
+      padding: 2px 30px;
+
+      > li {
+        margin: 10px 0 20px 0;
+
+        > span {
+          margin-top: 20px;
+          font-size: 120%;
+          line-height: 150%;
+        }
+
+        > label {
+          display: block;
+          font-size: 100%;
+          font-weight: $__fontWeightMedium;
+        }
+
+        > input, > textarea, > select {
+          width: 100%;
+          max-width: 400px;
+          background: transparent;
+          font-size: 120%;
+          padding: 5px 8px;
+          margin-top: 5px;
+          border-radius: 5px;
+          outline: none;
+          box-shadow: none;
+          transition: border-color 0.5s;
+          border: 1px solid rgba(0, 0, 0, 0.15);
+
+          &.error {
+            border-color: $colorError;
+          }
+
+          &:focus {
+            border-color: rgba(0, 0, 0, 0.3);
+          }
+        }
+      }
+    }
+
+    &.sidepanel {
+      > ul {
+        padding: 2px 15px;
+      }
+    }
+  }
+
+  &[data-type='edit'] {
+
+    > header::before {
+      @include maskImage('icon-edit');
+    }
+
+    > ul > li.info {
+
+      > textarea {
+        max-width: none;
+        height: 60px;
+        resize: none;
+        margin-bottom: 3px;
+      }
+
+      > span {
+        opacity: 0;
+        font-size: 80%;
+        color: $colorError;
+        transition: opacity 0.5s;
+      }
+
+      &.active > span {
+        opacity: 1;
+      }
+    }
+  }
+
+  &[data-type='add'] {
+
+    > header::before {
+      @include maskImage('icon-add');
+    }
+
+    h2 {
+      margin: 0 0 40px 0;
+      font-weight: $__fontWeightThin;
+      font-size: 200%;
+    }
+
+    > ul {
+      transition: opacity 0.5s, transform 0.5s;
+      margin: 10px 0 0 0;
+      transform: translate3d(0, 15px, 0);
+      @extend %hidden;
+
+      &.visible {
+        @extend %visible;
+        transform: translate3d(0, 0, 0);
+      }
+
+      > li > span {
+        margin-top: -20px;
+      }
+    }
+
+    > menu[data-name='select'] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: calc(100% - 30px);
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 30px;
+      transition: opacity 0.2s, transform 0.2s;
+
+      &.hidden {
+        @extend %hidden;
+        transform: translate3d(0, -40px, 0);
+      }
+
+      > a {
+        @include mask(none, $__textColor, 36px);
+        position: relative;
+        display: block;
+        width: 86px;
+        height: 86px;
+        border-radius: 50%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: $contentBackground2;
+        transition: box-shadow 0.5s;
+        cursor: pointer;
+
+        &::before {
+          transition: opacity 0.5s, background-color 0.5s;
+          opacity: 0.7;
+        }
+
+        &::after {
+          content: attr(title);
+          position: absolute;
+          display: block;
+          bottom: -30px;
+          left: -50%;
+          width: 200%;
+          padding: 40px 0 0 0;
+          font-size: 120%;
+          text-align: center;
+          color: $__textColor;
+          transition: color 0.5s;
+        }
+
+        &.hover {
+          box-shadow: 1px 4px 7px rgba(0, 0, 0, 0.15);
+
+          &::before {
+            opacity: 1;
+            background-color: $__colorScheme;
+          }
+
+          &::after {
+            color: $__colorScheme;
+          }
+        }
+
+        &[data-type='bookmark']::before {
+          @include maskImage('icon-bookmark');
+        }
+
+        &[data-type='dir']::before {
+          @include maskImage('icon-dir-3');
+        }
+
+        &[data-type='separator']::before {
+          @include maskImage('icon-separator');
+        }
+      }
+    }
+
+    > menu.buttons > a.action {
+      display: none;
+
+      &.visible {
+        display: inline-block;
+      }
+    }
+
+    &.sidepanel {
+      > menu[data-name='select'] {
+        flex-flow: column wrap;
+        justify-content: flex-start;
+
+        > a {
+          margin-top: 80px;
+
+          + a {
+            margin-top: 60px;
+          }
+        }
+      }
+    }
+  }
+
+  > menu.buttons {
+    position: absolute;
+    bottom: 16px;
+    right: 20px;
+    z-index: 3;
+
+    > a {
+      position: relative;
+      display: inline-block;
+      padding: 5px 10px 4px;
+      margin: 0 5px;
+      color: $__colorScheme;
+      font-weight: $__fontWeightBold;
+      text-transform: uppercase;
+      border-radius: 3px;
+      cursor: pointer;
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 3px;
+        background: $__colorScheme;
+        transition: opacity 0.5s;
+        @extend %hidden;
+      }
+
+      &:hover::before {
+        opacity: 0.15;
+      }
+    }
+  }
+
+  &.sidepanel {
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+    transform: translate3d(-50px, 0, 0);
+
+    &.visible {
+      transform: translate3d(0, 0, 0);
+    }
+
+    > a.preview, > span.preview {
+      margin: 20px 15px 20px;
+
+      + a.previewUrl {
+        margin: -15px 15px 20px;
+      }
+    }
+
+    > div.info {
+      margin: 30px 15px 0;
+    }
+  }
+}
+
+@import "include/linkchecker";
+@import "include/newtab/overlay";
+//
+//
+@import "rtl/overlay";
+@import "highContrast/overlay";
+@import "dark/overlay";

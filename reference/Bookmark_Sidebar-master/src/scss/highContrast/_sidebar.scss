@@ -1,0 +1,34 @@
+body.highContrast:not(.dark) {
+
+  section#sidebar {
+
+    > header {
+
+      > a {
+
+        &:hover, &.active {
+          background-color: rgba(0, 0, 0, 0.07);
+        }
+      }
+
+      > div.searchBox {
+        background-color: rgba(0, 0, 0, 0.07);
+
+        > a.searchClose:hover {
+          background-color: rgba(0, 0, 0, 0.07);
+        }
+      }
+    }
+  }
+
+  div#infoBox {
+
+    > a {
+      color: $__textColor;
+
+      &::before {
+        background: $__textColor;
+      }
+    }
+  }
+}
