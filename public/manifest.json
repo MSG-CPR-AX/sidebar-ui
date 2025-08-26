@@ -1,27 +1,17 @@
 {
+  "name": "Bookmark Side Panel",
+  "description": "Share and manage bookmarks across closed networks via GitLab‑managed YAML files.",
+  "version": "1.0.0",
   "manifest_version": 3,
-  "name": "SideBeam✨",
-  "version": "1.0",
-  "description": "SideBeam✨",
-  "permissions": ["storage", "scripting", "tabs", "sidePanel", "notifications", "bookmarks"],
-  "action": {
-    "default_title": "Click to open panel"
-  },
-  "side_panel": {
-    "default_path": "index.html"
-  },
+  "permissions": ["bookmarks", "storage", "tabs"],
+  "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js"
   },
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "index.html",
-        "static/*"
-      ],
-      "matches": [
-        "<all_urls>"
-      ]
-    }
-  ]
+  "action": {
+    "default_title": "Bookmarks"
+  },
+  "side_panel": {
+    "default_path": "index.html"
+  }
 }

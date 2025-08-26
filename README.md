@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# 사이드북마크 UI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+이 프로젝트는 폐쇄망 환경에서 사용되는 북마크 공유 애플리케이션의 사이드패널 UI를 구현합니다.  GitLab 에 저장된 YAML 북마크 파일들을 백엔드 서비스로부터 읽어와 사용자에게 제공하며, 크롬 로컬 북마크와의 연동, 검색, 분류, 상세 보기 등 다양한 기능을 제공합니다.
 
-## Available Scripts
+## 특징
 
-In the project directory, you can run:
+- **Chrome MV3 사이드패널 확장**으로 동작하며, 사이드패널에서 바로 사용할 수 있습니다.
+- **원격 북마크**: 백엔드(`/bookmarks`)에서 전달되는 북마크를 카테고리별로 보여주고 검색할 수 있습니다.
+- **로컬 북마크**: Chrome 의 `chrome.bookmarks` API 를 이용해 사용자의 로컬 북마크 트리를 조회·삭제·열기 기능을 지원합니다.
+- **북마크 복제**: 원격 북마크를 클릭 한 번으로 로컬 북마크에 복사할 수 있어 개인화된 즐겨찾기 구성이 가능합니다.
+- **상세 보기 모달**: 북마크의 도메인, 카테고리, 패키지, 메타 정보, 소스 경로를 모달로 확인할 수 있습니다.
+- **태그(카테고리) 필터**: 북마크의 최상위 카테고리를 토글하여 원하는 분야의 링크만 필터링할 수 있습니다.
+- **검색 기능**: 이름과 URL 에 대해 부분 일치 검색을 제공합니다.
+- **반응형 디자인**: TailwindCSS(CDN) 기반으로 깔끔한 UI 를 구현했으며, 다크 모드를 지원합니다.
 
-### `npm start`
+## 설치
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Node.js 18 이상을 설치합니다.
+2. 저장소 루트에서 의존성을 설치합니다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+   ```bash
+   cd sidebar-ui
+   npm install
+   ```
 
-### `npm test`
+3. 개발 서버를 실행하여 브라우저에서 테스트합니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```bash
+   npm start
+   ```
 
-### `npm run build`
+   기본적으로 `http://localhost:3000` 에서 애플리케이션을 확인할 수 있습니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. 크롬 확장으로 사용하려면 빌드 후 `manifest.json` 이 포함된 `build` 폴더를 로드합니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   npm run build
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   Chrome 주소창에서 `chrome://extensions` 로 이동하여 **개발자 모드**를 활성화한 뒤, "압축해제된 확장 프로그램 로드"를 선택하고 `sidebar-ui/build` 디렉터리를 선택합니다.
 
-### `npm run eject`
+## 백엔드 연동
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+본 UI 는 `/bookmarks` 엔드포인트에서 모든 북마크 데이터를, `/bookmarks/categories` 엔드포인트에서 카테고리 트리를 받아올 것으로 가정합니다. Spring Boot 기반의 백엔드는 YAML 파일들을 GitLab 으로부터 읽어와 검증한 뒤 JSON 으로 반환합니다. 로컬 개발 시에는 프록시 설정(`package.json` 의 `proxy` 항목) 또는 Nginx 등을 활용해 API 서버로 요청을 전달해야 합니다.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 확장 개발 시 유의사항
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- `chrome.bookmarks` API 를 이용하는 기능은 크롬 확장 환경에서만 정상적으로 동작합니다. 브라우저 환경이나 테스트 도구에서는 빈 목록이 표시될 수 있습니다.
+- 원격 북마크의 수정·삭제·추가는 백엔드에서 제공하지 않으며, GitLab 저장소의 YAML 파일을 직접 수정해야 합니다. UI 에서는 원본 파일 링크를 제공하여 사용자가 편집할 수 있도록 돕습니다.
+- 대용량 목록에 대비해 `react-window` 로 목록을 가상화하여 렌더링 성능을 확보했습니다.
+- 검색어 및 카테고리 필터는 클라이언트 측에서 수행되며, 다중 카테고리 선택을 지원합니다.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 테스트 및 품질 보증
 
-## Learn More
+본 프로젝트는 React Testing Library 를 이용한 단위 테스트를 포함하고 있으며, 간단한 예제로 `BookmarkList` 컴포넌트의 렌더링과 콜백 호출을 검증합니다.  테스트 실행은 다음과 같이 수행할 수 있습니다.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm test -- --watchAll=false
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+또한 GitHub Actions 기반의 CI 파이프라인이 제공되어 PR 이 열리거나 `main` 브랜치에 푸시될 때마다 의존성 설치, 테스트 실행, 프로덕션 빌드가 자동으로 수행됩니다.  CI 설정은 `.github/workflows/ci.yml` 에 정의되어 있습니다.
 
-### Code Splitting
+예외 처리와 오류 발생 시 사용자에게 알림을 보여주기 위해 Toast 컨텍스트와 Error Boundary 가 도입되었습니다.  이를 통해 API 실패나 브라우저 API 지원 여부에 따른 문제를 친숙한 메시지로 안내합니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 기여하기
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+코드 개선, 버그 수정, 기능 제안은 언제나 환영합니다. 이 저장소에 Pull Request 를 보내주시거나 이슈를 등록해주세요.
