@@ -11,7 +11,7 @@ export const TopBar = ({ searchTerm, setSearchTerm }: TopBarProps) => {
     <header className="flex h-14 shrink-0 items-center gap-4 border-b border-divider bg-background px-4">
       <div className="relative flex-1">
         <Icon
-          name="Search"
+          name="search"
           size={18}
           className="absolute top-1/2 left-3 -translate-y-1/2 text-secondary"
         />
@@ -24,7 +24,7 @@ export const TopBar = ({ searchTerm, setSearchTerm }: TopBarProps) => {
         />
       </div>
       <Button variant="ghost" size="icon" aria-label="Add new bookmark">
-        <Icon name="Plus" size={20} />
+        <Icon name="add" size={20} />
       </Button>
     </header>
   )

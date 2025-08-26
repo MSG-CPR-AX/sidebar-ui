@@ -1,15 +1,23 @@
-import { icons, LucideProps } from 'lucide-react'
+import { customIcons } from '../../assets/icons';
 
-interface IconProps extends LucideProps {
-  name: keyof typeof icons
+interface IconProps {
+  name: string;
+  className?: string;
+  size?: number;
 }
 
-export const Icon = ({ name, className, ...props }: IconProps) => {
-  const LucideIcon = icons[name]
+export const Icon = ({ name, className, size = 24 }: IconProps) => {
+  const svgString = customIcons[name];
 
-  if (!LucideIcon) {
-    return null
+  if (!svgString) {
+    return null; // Don't render anything if icon not found
   }
 
-  return <LucideIcon className={className} {...props} />
-}
+  return (
+    <div
+      className={className}
+      style={{ width: size, height: size, display: 'inline-block' }}
+      dangerouslySetInnerHTML={{ __html: svgString }}
+    />
+  );
+};
