@@ -1,27 +1,22 @@
 {
   "manifest_version": 3,
-  "name": "SideBeam✨",
+  "name": "Sidebeam",
   "version": "1.0",
-  "description": "SideBeam✨",
-  "permissions": ["storage", "scripting", "tabs", "sidePanel", "notifications", "bookmarks"],
-  "action": {
-    "default_title": "Click to open panel"
-  },
+  "description": "A bookmark sharing application for the Chrome side panel.",
+  "permissions": [
+    "sidePanel",
+    "bookmarks",
+    "storage"
+  ],
   "side_panel": {
     "default_path": "index.html"
   },
-  "background": {
-    "service_worker": "background.js"
+  "action": {
+    "default_title": "Open Sidebeam"
   },
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "index.html",
-        "static/*"
-      ],
-      "matches": [
-        "<all_urls>"
-      ]
-    }
-  ]
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
 }
