@@ -14,24 +14,43 @@ interface BookmarkItemProps {
   onShowDetails: (bookmark: Bookmark) => void;
 }
 
+/**
+ * Renders a single bookmark item in the list.
+ * It displays the bookmark's name, a colored dot, tags, and handles user interactions
+ * like click (for details), right-click (for context menu), and drag-and-drop.
+ */
 export function BookmarkItem({ node, selectedTag, onTagClick, onCopyToLocal, onShowDetails }: BookmarkItemProps) {
+  // State to manage the position and visibility of the context menu.
   const [contextMenu, setContextMenu] = useState<{ x: number, y: number } | null>(null);
 
   const tags = node.data ? flattenTags(node.data.packages) : [];
   const colorClass = node.data ? generateColorFromDomain(node.data.domain) : 'bg-gray-400';
 
+  // Show the context menu at the cursor's position.
   const handleContextMenu = (event: React.MouseEvent) => {
     event.preventDefault();
     event.stopPropagation();
     setContextMenu({ x: event.clientX, y: event.clientY });
   };
 
+  // Trigger the detail modal.
   const handleShowDetails = () => {
     if (node.data) {
       onShowDetails(node.data);
     }
   }
 
+  // Set data for the browser to recognize a drag event as a link,
+  // allowing it to be dropped on the bookmarks bar.
+  const handleDragStart = (event: React.DragEvent) => {
+    if (node.data) {
+      event.dataTransfer.setData('text/uri-list', node.data.url);
+      event.dataTransfer.setData('text/plain', node.data.url);
+      event.dataTransfer.effectAllowed = 'copy';
+    }
+  };
+
+  // Define the items to be shown in the context menu.
   const menuItems: MenuItem[] = [
     {
       label: 'Copy to Local Bookmarks',
@@ -45,23 +64,28 @@ export function BookmarkItem({ node, selectedTag, onTagClick, onCopyToLocal, onS
     <li
       className="my-1 p-2 rounded-md hover:bg-gray-100"
       onContextMenu={handleContextMenu}
+      draggable="true"
+      onDragStart={handleDragStart}
     >
       <div className="flex items-center justify-between">
+        {/* The main clickable area to show details */}
         <div className="flex items-center cursor-pointer flex-grow truncate" onClick={handleShowDetails}>
           <span className={`w-2 h-2 ${colorClass} rounded-full mr-3 flex-shrink-0`}></span>
           <span className="truncate font-medium text-sm">{node.name}</span>
         </div>
+        {/* A separate icon to open the link in a new tab */}
         <a
           href={node.data?.url}
           target="_blank"
           rel="noopener noreferrer"
           className="ml-2 p-1 text-gray-400 hover:text-gray-700"
-          onClick={(e) => e.stopPropagation()}
+          onClick={(e) => e.stopPropagation()} // Prevent the detail modal from opening
         >
           <LinkIcon className="w-4 h-4" />
         </a>
       </div>
 
+      {/* Display tags if they exist */}
       {tags.length > 0 && (
         <div className="mt-2 ml-5 flex flex-wrap gap-2">
           {tags.map(tag => (
@@ -75,6 +99,7 @@ export function BookmarkItem({ node, selectedTag, onTagClick, onCopyToLocal, onS
         </div>
       )}
 
+      {/* Render the context menu when its state is set */}
       {contextMenu && (
         <ContextMenu
           x={contextMenu.x}

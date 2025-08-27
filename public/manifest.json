@@ -8,6 +8,10 @@
     "bookmarks",
     "storage"
   ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
   "side_panel": {
     "default_path": "index.html"
   },
